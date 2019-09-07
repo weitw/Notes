@@ -42,9 +42,9 @@
 
 #### 1. Git的安装
 
-> 第一步。执行命令`sudo apt-get update`。
+> - 第一步。执行命令`sudo apt-get update`。
 >
-> 第二步。执行命令`sudo apt-get install git`
+> - 第二步。执行命令`sudo apt-get install git`
 
 #### 2. Git的使用
 
