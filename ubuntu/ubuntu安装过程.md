@@ -1,0 +1,117 @@
+### 1. ubutnu无法联网的问题
+
+#### 1. 问题描述
+
+> 装了Ubuntu之后，发现无法联接网络，并且在终端输入命令`ifconfig`之后，也提示找不到命令
+
+#### 2. 解决方案
+
+> - 在你的启动盘(可能是你的u盘或者光盘)里找到pool/main/d/dkms/dkms_2.6.1-4ubuntu1_all.deb这个文件，版本号什么的可能不一样，但是目录你找到相应的目录下对应的文件就可以了。
+>
+> ![bc](./dkms.png)
+>
+> 然后在该目录下执行命令：`sudo dpkg -i dkms_2.6.1-4ubuntu1_all.deb`，
+>
+> - 第二步。找到ubuntu-18.04-desk-amd64/pool/restricted/b/bcmwl/bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu4_amd64这个文件
+>
+>   ![bcmwl-kernel-source](./bcmwl.png)
+>
+>   然后执行`sudo dpkg -i bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu4_amd64`这个命令。如果没有错误的话，应该就可以连接网络了。
+
+
+
+### 2. 提示ifconfig命令找不到
+
+#### 1. 问题描述
+
+> 在终端输入ifconfig之后，还是显示找不到命令
+
+#### 2. 解决方案
+
+> - 第一步。更新apt-get，使用命令：`sudo apt-get update`
+>
+> - 第二步。使用命令：`sudo apt-get install net-tools`下载net-tools。如果过程没有报错的话，输入命令`ifconfig`就没有问题了。
+
+### 3. Google浏览器的下载
+
+> - 第一步。在[ubuntu chrome下载地址](http://www.ubuntuchrome.com/)中下载ubuntu chrome。下载成功后可以看到是一个.deb文件
+>
+> - 第二步。找到文件下载的路径，然后执行命令：`sudo dpkg -i google-chrome-stable_current_amd64.deb`，完成之后Google浏览器就下载完成了，可以在**所有程序**中找到。
+
+### 4. Git下载
+
+#### 1. Git的安装
+
+> 第一步。执行命令`sudo apt-get update`。
+>
+> 第二步。执行命令`sudo apt-get install git`
+
+#### 2. Git的使用
+
+> - 第一步。执行两条命令
+>
+> > sudo config --global user.name "your github username"
+> >
+> > sudo config --global user.email "email"
+>
+> - 第二步。执行命令`sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE`，得到密钥和公钥。
+>
+> - 第三步。复制~/.ssh/id_rsa.pub中的内容，然后在你github设置中添加.
+>
+>   ![添加](./SSHkeys.png)
+>
+>   如图，点击右上角的**New SSH key**，然后将复制的公钥内容粘贴进去即可。之后就可以按照Git常规的用法去用了。
+
+### 5. Typora的安装
+
+#### 1. 执行以下命令安装
+
+> `sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE`
+>
+> `sudo add-apt-repository 'deb https://typora.io linux/'`
+>
+> `sudo apt-get update`
+>
+> `sudo apt-get install typora`
+
+### 6. 安装QQ/TIM/微信
+
+#### 1. 安装TIM
+
+> - 第一步。安装deepin-wine环境。
+>
+> 在https://github.com/wszqkzqk/deepin-wine-ubuntu中下载zip包，我使用的是Git clone到本地
+>
+> ![TIM下载](./TIM_donwnload.png)
+>
+> 如图，复制地址之后，使用命令：`git clone https://github.com/wszqkzqk/deepin-wine-ubuntu.git`，这样就会将该项目下载到本地
+>
+> - 第二步。安装相关应用容器
+>
+>   打开网址http://mirrors.aliyun.com/deepin/pool/non-free/d/，这里面有很多的容器可以下载，如果你找不到TIM对应的容器，你也可以直接打开下面的网址，然后下载deb文件就可以了。
+>
+>   > - TIM：http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.office/
+>   >
+>   > - QQ：http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/
+>   >
+>   > - QQ轻聊版：http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im.light/
+>   >
+>   >   ![TIM的deb包](./TIM_deb.png)
+
+- 第三步。安装TIM
+
+  > 进入deb文件下载路径，然后执行命令：`sudo dpkg -i xxxxx.deb`就可以了。之后就可以在所有程序中找到TIM了。
+
+- QQ和微信自己去试吧
+
+### 7. 安装网易云音乐
+
+#### 1. 下载网易云deb包
+
+> 去网易云音乐的网管下载Linux的deb包。如下图
+>
+> ![网易云音乐下载](./netEasy.png)
+
+#### 2. 开始安装
+
+> 进入deb包的路径，使用命令开始安装：`sudo dpkg -i netease-cloud-music_1.2.1_amd64_ubuntu_20190428.deb`，完成后没错误的话就是下载成功了，可在全部程序中查看
