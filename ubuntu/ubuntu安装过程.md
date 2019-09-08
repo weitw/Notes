@@ -145,3 +145,30 @@
 #### 2. 解决方案
 
 > 使用命令：`sudo password root`，然后会提示你为root用户创建密码，确认密码，完成后root账号就被激活了，现在可以使用命令`su`或者`su root`来切换到root账号下。
+
+### 9. 桌面便签的安装
+
+#### 1. 应用名称
+
+> indicator-stickynotes
+
+#### 2. 安装
+
+> `sudo add-apt-repository ppa:umang/indicator-stickynotes`
+> `sudo apt-get update `
+> `sudo apt-get install indicator-stickynotes `
+>
+> 我看网上的教程是用上面这三条命令，但是我在使用第一条命令时出错了
+>
+> ![增加stickynotes仓库出错](./notesError.png)
+>
+> 然后我索性直接跳过前两个部分，用第三个命令，但是又报错了。
+>
+> 然后根据提示，我使用下面命令
+>
+> ` sudo apt --fix-broken install indicator-stickynotes`
+>
+> ![stickynotes安装成功](./notesOk.png)
+>
+> 安装成功，在所有程序里可以找到。应用默认颜色是黄色，但是可以修改的。
+
