@@ -8,13 +8,13 @@
 
 > - 在你的启动盘(可能是你的u盘或者光盘)里找到pool/main/d/dkms/dkms_2.6.1-4ubuntu1_all.deb这个文件，版本号什么的可能不一样，但是目录你找到相应的目录下对应的文件就可以了。
 >
-> ![bc](./dkms.png)
+> ![bc](./img/dkms.png)
 >
 > 然后在该目录下执行命令：`sudo dpkg -i dkms_2.6.1-4ubuntu1_all.deb`，
 >
 > - 第二步。找到ubuntu-18.04-desk-amd64/pool/restricted/b/bcmwl/bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu4_amd64这个文件
 >
->   ![bcmwl-kernel-source](./bcmwl.png)
+>   ![bcmwl-kernel-source](./img/bcmwl.png)
 >
 >   然后执行`sudo dpkg -i bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu4_amd64`这个命令。如果没有错误的话，应该就可以连接网络了。
 
@@ -58,7 +58,7 @@
 >
 > - 第三步。复制~/.ssh/id_rsa.pub中的内容，然后在你github设置中添加.
 >
->   ![添加](./SSHkeys.png)
+>   ![添加](./img/SSHkeys.png)
 >
 >   如图，点击右上角的**New SSH key**，然后将复制的公钥内容粘贴进去即可。之后就可以按照Git常规的用法去用了。
 
@@ -82,7 +82,7 @@
 >
 > 在https://github.com/wszqkzqk/deepin-wine-ubuntu中下载zip包，我使用的是Git clone到本地
 >
-> ![TIM下载](./TIM_donwnload.png)
+> ![TIM下载](./img/TIM_donwnload.png)
 >
 > 如图，复制地址之后，使用命令：`git clone https://github.com/wszqkzqk/deepin-wine-ubuntu.git`，这样就会将该项目下载到本地
 >
@@ -95,7 +95,7 @@
 >   > - QQ轻聊版：http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im.light/
 >   >- 微信：http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/
 >   > 
->   >![TIM的deb包](./TIM_deb.png)
+>   >![TIM的deb包](./img/TIM_deb.png)
 
 - 第三步。安装TIM
 
@@ -112,15 +112,15 @@
 >
 > - 但是我执行过程出错了，错误信息如下图
 >
->   ![命令安装出错](./wechatError.png)
+>   ![命令安装出错](./img/wechatError.png)
 >
 >   这是什么原因呢？因为之前我的TIM也是安装到该目录下的，我进入TIM所在的路径，发现微信竟然安装好了。如下图
 >
->   ![微信和TIM在同一路径下](./runWechat.png)
+>   ![微信和TIM在同一路径下](./img/runWechat.png)
 >
 >   注意在/opt/deepinwine/apps/下，TIM和微信都在，所以我才如果你安装QQ的话，也会是自动安装到该目录下的。那么到底有没有安装成功呢？我去所有程序里找一下
 >
->   ![微信安装成功了](./wechat.jpg)
+>   ![微信安装成功了](./img/wechat.jpg)
 >
 >   双击打开扫码，登录成功。
 
@@ -130,7 +130,7 @@
 
 > 去网易云音乐的网管下载Linux的deb包。如下图
 >
-> ![网易云音乐下载](./netEasy.png)
+> ![网易云音乐下载](./img/netEasy.png)
 
 #### 2. 开始安装
 
@@ -160,7 +160,7 @@
 >
 > 我看网上的教程是用上面这三条命令，但是我在使用第一条命令时出错了
 >
-> ![增加stickynotes仓库出错](./notesError.png)
+> ![增加stickynotes仓库出错](./img/notesError.png)
 >
 > 然后我索性直接跳过前两个部分，用第三个命令，但是又报错了。
 >
@@ -168,7 +168,7 @@
 >
 > ` sudo apt --fix-broken install indicator-stickynotes`
 >
-> ![stickynotes安装成功](./notesOk.png)
+> ![stickynotes安装成功](./img/notesOk.png)
 >
 > 安装成功，在所有程序里可以找到。应用默认颜色是黄色，但是可以修改的。
 
