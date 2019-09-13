@@ -123,3 +123,133 @@
 ##### 1.5 主线程
 
 > ![主线程](./img/主线程.png)
+
+#### 2. 创建多线程的方式
+
+##### 1.1 第一种方式
+
+###### 1.1.1 创建Thread类的子类
+> - 实现步骤：
+>   1. 创建一个Thread了的子类
+>   2. 在Thread类的子类中重写Thread类中的run()方法
+>   3. 创建Thread类的子类对象
+>   4. 调用Thread类中的start方法，开启新的线程，执行run方法
+>
+###### 1.1.2 多线程原理
+> ![多线程原理](./img/多线程原理.png)
+>
+###### 1.1.3 多线程在内存中的表示
+>   ![多线程在内存中的表示](./img/多线程在内存中的表示.png)
+>
+
+###### 1.1.4 一些常用方法
+
+> - `static Thread   currentThread()` 返回对当前正在执行的线程对象的引用。
+>
+> - `String getName()` 返回该线程的名称。
+>
+> - `int getPriority()`返回线程的优先级。
+>
+> - `static void sleep(long millis)`在指定的毫秒数内让当前正在执行的线程休眠（暂停执行），此操作受到系统计时器和调度程序精度和准确性的影响。 
+>
+> - `String toString()`返回该线程的字符串表示形式，包括线程名称、优先级和线程组
+>
+> - `static void yield()`暂停当前正在执行的线程对象，并执行其他线程
+>
+>   ![多线程的一些常用方法](./img/线程的一些常用方法.png)
+
+##### 1.2 第二种方式
+
+###### 1.2.1 实现Runnable接口
+
+> + 实现步骤
+>
+>   1. 创建一个Runnable接口的实现类
+>
+>   2. 在实现类中重写Runnable接口的run()方法，设置线程任务
+>
+>   3. 创建一个Runnable接口的实现对象
+>
+>   4. 创建一个Thread类对象，构造方法中传递Runnable接口 的实现类对象
+>
+>   5. 调用start()方法
+>
+> - 例如
+>
+>   > 创建一个Runnable类的接口MyThread2类
+>   >
+>   > ```java
+>   > class MyThread2 implements Runnable {
+>   >     @Override
+>   >     public void run() {
+>   >         // 这种方法里不能直接用getName()获取线程的名字
+>   >         System.out.println(Thread.current().getName());
+>   >     }
+>   > }
+>   > ```
+>   
+> - 在main方法里使用多线程
+>
+>   ```java
+>   MyThread2 mt2 = new MyThread2();
+>   Thread thread = new Thread(mt2);
+>   thread.start();
+>   ```
+>
+
+##### 1.3 两种方式的比较
+
+###### 1.3.1 使用Runnable接口的好处
+
+> - 避免了单继承的局限性(一个类只能继承一个父类，继承了Thread类之后，就不能继承其他类了)：实现了Runnable接口，还可以继承其他类，实现其他接口
+>
+> - 增强了程序的扩展性，降低了程序的耦合性(解耦)：
+>
+>   - 实现Runnable接口的方式，把设置线程任务和开启线程进行了分离(解耦)
+>
+>   - 实现类中重写了run()方法，设置线程任务。创建Thread方法时，因为要传入参数，所以我们可以改变传入的参数所对应的接口实现类，就可以开启不同的线程了。
+>
+>     ```java
+>     MyThread1 mt1 = new MyThread1();
+>     MyThread2 mt1 = new MyThread2();
+>     MyThread3 mt1 = new MyThread3();
+>     Thread t = new Thread(mt1);  // 改变传入的参数，就可以改变开启的线程
+>     Thread(t2).start();
+>     t.start();
+>     ```
+
+##### 1.4 第三种方式
+
+###### 1.4.1 匿名内部类
+
+> - 父类是Thread
+>
+>   ```java
+>   // 父类是Thread
+>   new Thread() {
+>       // 重写run() 方法
+>       @Override
+>       public void run() {
+>           System.out.println("父类是Thread线程执行");
+>       }
+>   }.start();
+>   
+>   // 实现接口Runnable类
+>   Runnable r = new Runnable(){
+>       @Override
+>       public void run() {
+>           System.out.println("实现Runnable接口线程执行");
+>       }
+>   };
+>   new Thread(r).start();
+>   
+>   // 实现接口Runnable类的简化方式
+>   new Thread(new Runnable() {
+>       @Override
+>       public void run() {
+>           System.out.println("简化实现Runnable接口线程执行");
+>       }
+>   }).start();
+>   ```
+>
+>   
