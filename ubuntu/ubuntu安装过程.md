@@ -1,6 +1,10 @@
+###　目录
+
+[TOC]
+
 ### 1. ubutnu无法联网的问题
 
-#### 1. 问题描述
+#### 1.1 问题描述
 
 > 装了Ubuntu之后，发现无法联接网络，并且在终端输入命令`ifconfig`之后，也提示找不到命令
 
@@ -22,11 +26,11 @@
 
 ### 2. 提示ifconfig命令找不到
 
-#### 1. 问题描述
+#### 2.1 问题描述
 
 > 在终端输入ifconfig之后，还是显示找不到命令
 
-#### 2. 解决方案
+#### 2.2 解决方案
 
 > - 第一步。更新apt-get，使用命令：`sudo apt-get update`
 >
@@ -40,13 +44,13 @@
 
 ### 4. Git下载
 
-#### 1. Git的安装
+#### 4.1 Git的安装
 
 > - 第一步。执行命令`sudo apt-get update`。
 >
 > - 第二步。执行命令`sudo apt-get install git`
 
-#### 2. Git的使用
+#### 4.2 Git的使用
 
 > - 第一步。执行两条命令
 >
@@ -64,7 +68,7 @@
 
 ### 5. Typora的安装
 
-#### 1. 执行以下命令安装
+#### 5.1 执行以下命令安装
 
 > `sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE`
 >
@@ -76,7 +80,7 @@
 
 ### 6. 安装QQ/TIM/微信
 
-#### 1. 安装TIM
+#### 6.1 安装TIM
 
 > - 第一步。安装deepin-wine环境。
 >
@@ -102,7 +106,7 @@
   > 进入deb文件下载路径，然后执行命令：`sudo dpkg -i xxxxx.deb`就可以了。之后就可以在所有程序中找到TIM了。
   >
 
-#### 2. 安装微信
+#### 6.2 安装微信
 
 > ubuntu安装完成后，会有一个“微信ubuntu版”，这个我试过扫码后不能登录，所以还是自己重新装一个吧
 >
@@ -126,33 +130,33 @@
 
 ### 7. 安装网易云音乐
 
-#### 1. 下载网易云deb包
+#### 7.1 下载网易云deb包
 
 > 去网易云音乐的网管下载Linux的deb包。如下图
 >
 > ![网易云音乐下载](./img/netEasy.png)
 
-#### 2. 开始安装
+#### 7.2 开始安装
 
 > 进入deb包的路径，使用命令开始安装：`sudo dpkg -i netease-cloud-music_1.2.1_amd64_ubuntu_20190428.deb`，完成后没错误的话就是下载成功了，可在全部程序中查看
 
 ### 8. ubuntu激活root
 
-#### 1. 问题描述
+#### 8.1  问题描述
 
 > 刚装好的ubuntu的root账户是没有被激活的，但是我们依然可以使用sudo来使用一些普通用户受限的命令，但是如果现在要切换到root账户怎么办呢？
 
-#### 2. 解决方案
+#### 8.2 解决方案
 
 > 使用命令：`sudo password root`，然后会提示你为root用户创建密码，确认密码，完成后root账号就被激活了，现在可以使用命令`su`或者`su root`来切换到root账号下。
 
 ### 9. 桌面便签的安装
 
-#### 1. 应用名称
+#### 9.1 应用名称
 
 > indicator-stickynotes
 
-#### 2. 安装
+#### 9.2 安装
 
 > `sudo add-apt-repository ppa:umang/indicator-stickynotes`
 > `sudo apt-get update `
