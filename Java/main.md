@@ -1,3 +1,42 @@
+[TOC]
+
+### 集合
+
+#### 1. Map
+
+> Map的key必须是唯一的，如果重复了，那么后面put的值会覆盖之前的值
+
+##### 1.1 创建一个HashMap对象
+
+> HashMap<Object, Object> map = new HashMap<>();
+
+##### 1.2 常用方法
+
+> - 添加键值对：V put(K key, V value);
+>
+>   - 查看是否为空：boolean isEmpty();
+>
+> - 查看长度：int size();
+>   
+>- 删除元素：V remove (Object key);
+> 
+>- 查看key或value是否已经存在：boolean containsKey(Object key);　boolean containsValue(Object value);
+>   
+> - 得到所有key或value对应的集合：Set<K> keySet();　Collection<V> values();
+> 
+> - 查看key对应的value：V get(Object key);
+
+##### 1.3 HashMap的遍历
+
+```java
+for (int key : map.keySet()) {
+    System.out.println(key + ": " + map.get(key));
+}
+```
+
+
+
+
 ### 异常及处理
 
 #### 1. throw关键字
