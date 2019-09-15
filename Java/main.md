@@ -12,19 +12,19 @@
 
 ##### 1.2 常用方法
 
-> - 添加键值对：V put(K key, V value);
->
->   - 查看是否为空：boolean isEmpty();
->
-> - 查看长度：int size();
->   
->- 删除元素：V remove (Object key);
-> 
->- 查看key或value是否已经存在：boolean containsKey(Object key);　boolean containsValue(Object value);
->   
-> - 得到所有key或value对应的集合：Set<K> keySet();　Collection<V> values();
-> 
-> - 查看key对应的value：V get(Object key);
+| **方法摘要**     |                                                              |
+| ---------------- | ------------------------------------------------------------ |
+| ` void`          | `clear()`           从此映射中移除所有映射关系。             |
+| ` Object`        | `clone()`           返回此 `HashMap` 实例的浅表副本：并不复制键和值本身。 |
+| ` boolean`       | `containsKey(Object key)`           如果此映射包含对于指定键的映射关系，则返回 `true`。 |
+| ` boolean`       | `containsValue(Object value)`           如果此映射将一个或多个键映射到指定值，则返回 `true`。 |
+| ` V`             | `get(Object key)`           查找映射中key的value             |
+| ` boolean`       | `isEmpty()`           如果此映射不包含键-值映射关系，则返回 `true`。 |
+| ` Set<K>`        | `keySet()`           返回该map中所有的key                    |
+| ` V`             | `put(K key, V value)`           在此映射中关联指定值与指定键。 |
+| ` V`             | `remove(Object key)`           从此映射中移除指定键的映射关系（如果存在）。 |
+| ` int`           | `size()`           返回该map的键值对数                       |
+| ` Collection<V>` | `values()`           返回该map中所有的value                  |
 
 ##### 1.3 HashMap的遍历
 
@@ -34,8 +34,40 @@ for (int key : map.keySet()) {
 }
 ```
 
+### 2. ArrayList
 
+#### 2.1 常用方法
 
+| **方法摘要** |                                                              |
+| ------------ | ------------------------------------------------------------ |
+| ` boolean`   | `add(E e)`           将指定的元素添加到此列表的尾部。        |
+| ` void`      | `add(int index, E element)`           将指定的元素插入此列表中的指定位置。 |
+| ` void`      | `clear()`           移除此列表中的所有元素。                 |
+| ` Object`    | `clone()`           返回此 `ArrayList` 实例的浅表副本。      |
+| ` boolean`   | `contains(Object o)`           如果此列表中包含指定的元素，则返回 `true`。 |
+| ` E`         | `get(int index)`           返回此列表中指定位置上的元素。    |
+| ` int`       | `indexOf(Object o)`           返回此列表中首次出现的指定元素的索引，或如果此列表不包含元素，则返回 -1。 |
+| ` boolean`   | `isEmpty()`           如果此列表中没有元素，则返回 `true`    |
+| ` E`         | `remove(int index)`           移除此列表中指定位置上的元素。 |
+| ` boolean`   | `remove(Object o)`           移除此列表中首次出现的指定元素（如果存在）。 |
+| ` E`         | `set(int index, E element)`           用指定的元素替代此列表中指定位置上的元素。 |
+| ` int`       | `size()`           返回此列表中的元素数。                    |
+| ` Object[]`  | `toArray()`           按适当顺序（从第一个到最后一个元素）返回包含此列表中所有元素的数组。 |
+
+### 3. HashSet
+
+#### 3.1 常用方法
+
+| **方法摘要**   |                                                              |
+| -------------- | ------------------------------------------------------------ |
+| ` boolean`     | `add(E e)`           如果此 set 中尚未包含指定元素，则添加指定元素。 |
+| ` void`        | `clear()`           从此 set 中移除所有元素。                |
+| ` Object`      | `clone()`           返回此 `HashSet` 实例的浅表副本：并没有复制这些元素本身。 |
+| ` boolean`     | `contains(Object o)`           如果此 set 包含指定元素，则返回 `true`。 |
+| ` boolean`     | `isEmpty()`           如果此 set 不包含任何元素，则返回 `true`。 |
+| ` Iterator<E>` | `iterator()`           返回对此 set 中元素进行迭代的迭代器。 |
+| ` boolean`     | `remove(Object o)`           如果指定元素存在于此 set 中，则将其移除。 |
+| ` int`         | `size()`           返回此 set 中的元素的数量（set 的容量）。 |
 
 ### 异常及处理
 
