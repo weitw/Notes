@@ -343,4 +343,59 @@ for (int key : map.keySet()) {
 >   }).start();
 >   ```
 >
->   
+
+#### 3. 线程同步机制
+
+#### 3.1 线程安全问题的描述
+
+> 多个线程访问了共享数据，会产生安全问题
+
+#### 3.2 解决线程安全问题
+
+> 三种方式解决
+
+##### 3.2.1 使用同步代码块
+
+> 格式：
+>
+> ```java
+> synchronized(锁对象) {
+>     可能会出现线程安全问题的代码（访问了共享资源）;
+> }
+> ```
+
+注意：
+
+1. 通过代码块中的锁对象，可以使用任意的对象。
+2. 但是必须保证多个线程使用的锁对象是同一对象
+3. 锁对象的作用：把同步代码块锁住，只让一个线程在同步代码块中执行
+
+例如：
+
+```java
+// 实现Runnable接口来创建线程类
+public class Demo implements Runnable {
+    private int ticket = 100;
+    Object obj = new Object();
+    @Override
+    public void run() {
+        while (true) {
+            synchronized (obj) {
+                System.out.println(Thread.currentThread.getName() + "正在买票" + ticket--);
+            }
+        }
+    }
+}
+```
+
+```java
+// 使用线程
+Demo d = new Demo();
+Thread t1 = new Thread(d);
+Thread t2 = new Thread(d);
+Thread t3 = new Thread(d);
+t1.start();
+t2.start();
+t3.start();
+```
+
