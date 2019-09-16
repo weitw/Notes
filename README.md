@@ -6,27 +6,41 @@
 
 ##### 1. Java
 
-###### 　　1.1 [Java笔记](./Java/main.md)
+###### 　　	1.1 [变量](./变量.md)
 
-> 包括集合、异常、线程等
+###### 	1.2 [数组](./数组.md)
+
+###### 	1.3 [容器](./容器.md)
+
+###### 	1.4 [多线程](./多线程.md)
+
+###### 	1.5 [异常处理](./异常处理.md)
+
+###### 	1.6 [类](./类.md)
+
+
 
 ##### 2. Linux
 
-###### 　　2.1 [磁盘操作](./Linux/DiskManage.md)
+###### 　　	2.1 [磁盘操作](./Linux/DiskManage.md)
 
-###### 　　2.2 [用户管理](./Linux/userGroupManage.md)
+###### 　　	2.2 [用户管理](./Linux/userGroupManage.md)
 
-###### 　　2.3 [vim操作](./Linux/vim.md)
+###### 　　	2.3 [vim操作](./Linux/vim.md)
 
-###### 　　2.4 [yum操作](./Linux/yum.md)
+###### 　　	2.4 [yum操作](./Linux/yum.md)
+
+
 
 ##### 3. markdown语法
 
-###### 　　3.1 [基本语法](./mkd/first.md)
+###### 　　	3.1 [基本语法](./mkd/first.md)
+
+
 
 ##### 4. ubuntu使用过程中遇到的问题和解决办法
 
-###### 　　4.1 [全部总结](./ubuntu/ubuntu安装过程.md)
+###### 　　	4.1 [全部总结](./ubuntu/ubuntu安装过程.md)
 
 > 该项内如包括常用软件安装、系统配置等问题
 >
