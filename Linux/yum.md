@@ -20,7 +20,7 @@
    > 3. `yum clean oldheaders`: 清除缓存目录下旧的headers
    > 4. `yum clean, yum clean all`
 9. 例如
-![yum list *mysql](yum_list_mysql.png "yum list *mysql示例")
+![yum list *mysql](./img/yum_list_mysql.png "yum list *mysql示例")
 
 ### 国内yum源
 1. 网易（163）yum源是国内最好的yum源之一 ，无论是速度还是软件版本，都非常的不错。

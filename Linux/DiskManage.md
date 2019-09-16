@@ -10,7 +10,7 @@
 >> -H: 以M=1000k取代M=1024K的进位方式
 >> -T: 显示文件系统类型
 > 4. 例如
-  ![df](df.png "df")
+    ![df](./img/df.png "df")
 >> 比较常用的是`df -hT`
 >> 上面的命令显示的是所有目录下的。也可以指定某个目录，比如
    `df -ht /etc`
@@ -25,13 +25,14 @@
 > 3. 选项和参数
 >> -l: 输入装置所有的分区内容，若仅有 fdisk -l 时， 则系统将会把整个系统内能够搜寻到的装置的分区均列出来。
 > 4. 例如
-  ![fdisk -l](fdisk.png "fdisk -l")
+    ![fdisk -l](./img/fdisk.png "fdisk -l")
 
 4. 磁盘格式化
 > 1. 描述：磁盘分割完毕后自然就是要进行文件系统的格式化，格式化的命令非常的简单，使用 mkfs（make filesystem） 命令
 > 2. 语法: `mkfs [-t 文件系统格式] 装置文件名`
 > 3. 选项和参数：
->> -t: 可以接文件系统格式，如ext2, ext3,vfat等
+> > -t: 可以接文件系统格式，如ext2, ext3,vfat等
+>
 > 4. 例如：`mkfs -t ext3 /dev/hdc4`
 
 5. 磁盘检验
@@ -44,6 +45,6 @@
 > 1. 描述：Linux的磁盘挂载使用mount命令，卸载使用unmount命令
 > 2. 语法：`mount [-t 文件系统] [-L Label名] [-o 额外选项] [-n] 装载文件名 挂载点`
 > 3. 例如：使用默认方式，将刚刚创建的/dev/hdc6挂载到/mnt/hdc6上
-  `mkdir /mnt/hdc6`
-  `mount /dev/hdc6 /mnt/hdc6`
+    `mkdir /mnt/hdc6`
+    `mount /dev/hdc6 /mnt/hdc6`
 > 4. umount语法：`umount [-fn] 装置文件名或挂载点`
