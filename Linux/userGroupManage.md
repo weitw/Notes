@@ -77,7 +77,7 @@
 > 1. 文件是用户管理中最重要的一个文件
 > 2. Linux系统中每个用户号都在/etc/passwd文件中与一个对应的记录行，它记录了这个用户的一些基本属性，这个文件对所有用户都是可读的
 > 3. 例如:\#`cat /etc/passwd`
-   >> ![cat_passwd](cat_passwd.png "cat /etc/passwd")
+   >> ![cat_passwd](./img/cat_passwd.png "cat /etc/passwd")
 > 4. 从上面的例子我们可以看到，/etc/passwd中一行记录对应着一个用户，每行记录又被冒号(:)分隔为7个字段，其格式和具体含义如下：
 `用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell`
    >> 1. 用户名：用户登录所用的用户名
@@ -98,17 +98,17 @@
 2. /etc/shadow
 > 1. `登录名:加密口令:最后一次修改时间:最小时间间隔:最大时间间隔:警告时间:不活动时间:失效时间:标志`
 > 2. 示例：`cat /etc/shadow`
-   >> ![shadow](cat_shadow.png "cat /etc/shadow")
+   >> ![shadow](./img/cat_shadow.png "cat /etc/shadow")
 3. /etc/group
 > 1. 用户组的所有信息都存放在/etc/group中
 > 2. `组名:口令:组标识号:组内用户列表`
 > 3. 一般组名都没有口令，所以一般为空或者为*
 > 4. 例如：cat /etc/group
-  >> ![group](cat_group.png "cat /etc/group")
+  >> ![group](./img/cat_group.png "cat /etc/group")
 4. 批量添加用户
 > 1. 先编辑一个文本用户文件。每一列按照/etc/passwd密码文件的格式书写，要注意每个用户的用户名、UID、宿主目录都不能一样，密码栏可以留空或者输入x
    > 例如建一个文件users.txt，内容如下：
-   >> ![批量增加用户](multi_add_users.png "批量增加用户")
+   >> ![批量增加用户](./img/multi_add_users.png "批量增加用户")
 > 2. 以root身份执行命令/usr/sbin/newusers，从刚创建的文件中导入数据，创建用户
    > \#`newusers < users.txt`
    > 然后查看/etc/passwd，和/home下是否增加了相应的数据或目录
