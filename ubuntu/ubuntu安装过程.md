@@ -76,6 +76,8 @@
 
 [跳转到目录](#目录)
 
+### Typora的安装
+
 #### 5.1 执行以下命令安装
 
 > `sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE`
