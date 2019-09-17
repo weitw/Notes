@@ -20,7 +20,7 @@
 - [2.1 磁盘操作](./Linux/DiskManage.md)
 - [2.2 用户管理](./Linux/userGroupManage.md)
 - [2.3 vim操作](./Linux/vim.md)
-- [2.4 yum操作](yum.md)
+- [2.4 yum操作](./Linux/yum.md)
 
 [3. markdown语法](./mkd/)
 
