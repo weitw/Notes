@@ -3,59 +3,58 @@
 
 ​		[1.1 问题描述](#1.1)
 
-​        [1.2 解决方案](#1.2 解决方案)
+​        [1.2 解决方案](#1.2)
 
-[2. 提示ifconfig命令找不到](#2. 提示ifconfig命令找不到)
+[2. 提示ifconfig命令找不到](#2)
 
-​        [2.1 问题描述](#2.1 问题描述)
+​        [2.1 问题描述](#2.1)
 
-​        [2.2 解决方案](#2.2 解决方案)
+​        [2.2 解决方案](#2.2)
 
-[3. Google浏览器的下载](#3. Google浏览器的下载)
+[3. Google浏览器的下载](#3)
 
-[4. Git下载](#4. Git下载)
+[4. Git下载](#4)
 
-​        [4.1 Git的安装](#4.1 Git的安装)
+​        [4.1 Git的安装](#4.1)
 
-​        [4.2 Git的使用](#4.2 Git的使用)
+​        [4.2 Git的使用](#4.2)
 
 [5. Typora的安装](#5)
 
 ​        [5.1 执行以下命令安装](#5.1)
 
-[6. 安装QQ/TIM/微信](#6. 安装QQ/TIM/微信)
+[6. 安装QQ/TIM/微信](#6)
 
-​        [6.1 安装TIM](#6.1 安装TIM)
+​        [6.1 安装TIM](#6.1)
 
-​        [6.2 安装微信](#6.2 安装微信)
+​        [6.2 安装微信](#6.2)
 
-[7. 安装网易云音乐](#7. 安装网易云音乐)
+[7. 安装网易云音乐](#7)
 
-​        [7.1 下载网易云deb包](#7.1 下载网易云deb包)
+​        [7.1 下载网易云deb包](#7.1)
 
-​        [7.2 开始安装](#7.2 开始安装)
+​        [7.2 开始安装](#7.2)
 
-[8. ubuntu激活root](#8. ubuntu激活root)
+[8. ubuntu激活root](#8)
 
-​        [8.1  问题描述](#8.1  问题描述)
+​        [8.1  问题描述](#8.1)
 
-​        [8.2 解决方案](#8.2 解决方案)
+​        [8.2 解决方案](#8.2)
 
-[9. 桌面便签的安装](#9. 桌面便签的安装)
+[9. 桌面便签的安装](#9)
 
-​        [9.1 应用名称](#9.1 应用名称)
+​        [9.1 应用名称](#9.1)
 
-​		[9.2 安装](#9.2 安装)
+​		[9.2 安装](#9.2)
 
-[10. ubuntu下画图软件kolourpaint4安装](#10. ubuntu下画图软件kolourpaint4安装)
+[10. ubuntu下画图软件kolourpaint4安装](#10)
 
 
 <h3 id="1">1. ubutnu无法联网的问题</h3>
 <h4 id="1.1">1.1 问题描述</h4>
 > 装了Ubuntu之后，发现无法联接网络，并且在终端输入命令`ifconfig`之后，也提示找不到命令
 
-#### 1.2 解决方案
-
+<h4 id="1.2">1.2 解决方案</h4>
 > - 在你的启动盘(可能是你的u盘或者光盘)里找到pool/main/d/dkms/dkms_2.6.1-4ubuntu1_all.deb这个文件，版本号什么的可能不一样，但是目录你找到相应的目录下对应的文件就可以了。
 >
 > ![bc](./img/dkms.png)
@@ -68,26 +67,18 @@
 >
 >   然后执行`sudo dpkg -i bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu4_amd64`这个命令。如果没有错误的话，应该就可以连接网络了。
 
-
-
-### 2. 提示ifconfig命令找不到
-
+<h3 id="2">2. 提示ifconfig命令找不到</h3>
 [回到目录](#目录)
 
-#### 2.1 问题描述
-
+<h4 id="2.1">2.1 问题描述</h4>
 > 在终端输入ifconfig之后，还是显示找不到命令
 
-#### 2.2 解决方案
-
+<h4 id="2.2">2.2 解决方案</h4>
 > - 第一步。更新apt-get，使用命令：`sudo apt-get update`
 >
 > - 第二步。使用命令：`sudo apt-get install net-tools`下载net-tools。如果过程没有报错的话，输入命令`ifconfig`就没有问题了。
 
-
-
-### 3. Google浏览器的下载
-
+<h3 id="3">3. Google浏览器的下载</h3>
 [回到目录](#目录)
 
 > - 第一步。在[ubuntu chrome下载地址](http://www.ubuntuchrome.com/)中下载ubuntu chrome。下载成功后可以看到是一个.deb文件
@@ -97,14 +88,12 @@
 <h3 id="4">4. Git下载</h3>
 [回到目录](#目录)
 
-#### 4.1 Git的安装
-
+<h4 id="4.1">4.1 Git的安装</h4>
 > - 第一步。执行命令`sudo apt-get update`。
 >
 > - 第二步。执行命令`sudo apt-get install git`
 
-#### 4.2 Git的使用
-
+<h4 id="4.2">4.2 Git的使用</h4>
 > - 第一步。执行两条命令
 >
 > > sudo config --global user.name "your github username"
@@ -120,11 +109,9 @@
 >   如图，点击右上角的**New SSH key**，然后将复制的公钥内容粘贴进去即可。之后就可以按照Git常规的用法去用了。
 
 <h3 id="5">5. Typora的安装</h3>
-
 [回到目录](#目录)
 
 <h4 id="5.1">5.1 执行以下命令安装</h4>
-
 > `sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE`
 >
 > `sudo add-apt-repository 'deb https://typora.io linux/'`
@@ -133,14 +120,10 @@
 >
 > `sudo apt-get install typora`
 
-
-
-### 6. 安装QQ/TIM/微信
-
+<h3 id="6">6. 安装QQ/TIM/微信</h3>
 [跳转到目录](#目录)
 
-#### 6.1 安装TIM
-
+<h4 id="6.1">6.1 安装TIM</h4>
 > - 第一步。安装deepin-wine环境。
 >
 > 在https://github.com/wszqkzqk/deepin-wine-ubuntu中下载zip包，我使用的是Git clone到本地
@@ -165,8 +148,7 @@
   > 进入deb文件下载路径，然后执行命令：`sudo dpkg -i xxxxx.deb`就可以了。之后就可以在所有程序中找到TIM了。
   >
 
-#### 6.2 安装微信
-
+<h4 id="6.2">6.2 安装微信</h4>
 > ubuntu安装完成后，会有一个“微信ubuntu版”，这个我试过扫码后不能登录，所以还是自己重新装一个吧
 >
 > - 第一步。从上面给的链接中下载微信的deb包。
@@ -187,48 +169,33 @@
 >
 >   双击打开扫码，登录成功。
 
-
-
-### 7. 安装网易云音乐
-
+<h3 id="7">7. 安装网易云音乐</h3>
 [跳转到目录](#目录)
 
-#### 7.1 下载网易云deb包
-
+<h4 id="7.1">7.1 下载网易云deb包</h4>
 > 去网易云音乐的网管下载Linux的deb包。如下图
 >
 > ![网易云音乐下载](./img/netEasy.png)
 
-#### 7.2 开始安装
-
+<h4 id="7.2">7.2 开始安装</h4>
 > 进入deb包的路径，使用命令开始安装：`sudo dpkg -i netease-cloud-music_1.2.1_amd64_ubuntu_20190428.deb`，完成后没错误的话就是下载成功了，可在全部程序中查看
 
-
-
-### 8. ubuntu激活root
-
+<h3 id="8">8. ubuntu激活root</h3>
 [跳转到目录](#目录)
 
-#### 8.1  问题描述
-
+<h4 id="8.1">8.1  问题描述</h4>
 > 刚装好的ubuntu的root账户是没有被激活的，但是我们依然可以使用sudo来使用一些普通用户受限的命令，但是如果现在要切换到root账户怎么办呢？
 
-#### 8.2 解决方案
-
+<h4 id="8.2">8.2 解决方案</h4>
 > 使用命令：`sudo password root`，然后会提示你为root用户创建密码，确认密码，完成后root账号就被激活了，现在可以使用命令`su`或者`su root`来切换到root账号下。
 
-
-
-### 9. 桌面便签的安装
-
+<h3 id="9">9. 桌面便签的安装</h3>
 [目录](#目录)
 
-#### 9.1 应用名称
-
+<h4 id="9.1">9.1 应用名称</h4>
 > indicator-stickynotes
 
-#### 9.2 安装
-
+<h4 id="9.1">9.2 安装</h4>
 > `sudo add-apt-repository ppa:umang/indicator-stickynotes`
 > `sudo apt-get update `
 > `sudo apt-get install indicator-stickynotes `
@@ -247,10 +214,7 @@
 >
 > 安装成功，在所有程序里可以找到。应用默认颜色是黄色，但是可以修改的。
 
-
-
-### 10. ubuntu下画图软件kolourpaint4安装
-
+<h3 id="10">10. ubuntu下画图软件kolourpaint4安装</h3>
 [回到目录](#目录)
 
 > ubuntu自带的那些图片查看无法只能剪切，无法进行涂鸦等操作。
