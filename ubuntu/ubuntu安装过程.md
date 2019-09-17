@@ -117,7 +117,8 @@
 
 [回到目录](#目录)
 
-## 1. 安装TIM
+### 1. 安装TIM
+
 > - 第一步。安装deepin-wine环境。
 >
 > 在https://github.com/wszqkzqk/deepin-wine-ubuntu中下载zip包，我使用的是Git clone到本地
