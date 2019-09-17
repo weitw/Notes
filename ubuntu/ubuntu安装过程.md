@@ -2,25 +2,25 @@
 
 <!--TOC-->
 
-[ubuntu无法联网的问题](#ubuntu无法联网的问题)
+* [ubuntu无法联网的问题](#ubuntu无法联网的问题)
 
-[提示ifconfig命令找不到](#提示ifconfig命令找不到)
+* [提示ifconfig命令找不到](#提示ifconfig命令找不到)
 
-[Google浏览器的下载](#Google浏览器的下载)
+* [Google浏览器的下载](#Google浏览器的下载)
 
-[４. Git下载](#４. Git下载)
+* [Git下载](#Git下载)
 
-[5. Typora的安装](#5. Typora的安装)
+* [Typora的安装](#Typora的安装)
 
-[ubuntu无法联网的问题](#ubuntu无法联网的问题)
+* [安装QQ/TIM/微信](#安装QQ/TIM/微信)
 
-[ubuntu无法联网的问题](#ubuntu无法联网的问题)
+* [安装网易云音乐](#安装网易云音乐)
 
-[ubuntu无法联网的问题](#ubuntu无法联网的问题)
+* [ubuntu激活root](#ubuntu激活root)
 
-[ubuntu无法联网的问题](#ubuntu无法联网的问题)
+* [桌面便签的安装](#桌面便签的安装)
 
-[ubuntu无法联网的问题](#ubuntu无法联网的问题)
+* [ubuntu下画图软件kolourpaint4安](#ubuntu下画图软件kolourpaint4安)
 
 <!--/TOC-->
 
@@ -52,10 +52,10 @@
 
 [回到目录](#目录)
 
-### 2.1 问题描述
+### 1. 问题描述
 > 在终端输入ifconfig之后，还是显示找不到命令
 
-### 2.2 解决方案
+### 2. 解决方案
 > - 第一步。更新apt-get，使用命令：`sudo apt-get update`
 >
 > - 第二步。使用命令：`sudo apt-get install net-tools`下载net-tools。如果过程没有报错的话，输入命令`ifconfig`就没有问题了。
@@ -72,16 +72,16 @@
 
 
 
-## ４. Git下载
+## Git下载
 
 [回到目录](#目录)
 
-### 4.1 Git的安装
+### 1. Git的安装
 > - 第一步。执行命令`sudo apt-get update`。
 >
 > - 第二步。执行命令`sudo apt-get install git`
 
-### 4.2 Git的使用
+### 2. Git的使用
 > - 第一步。执行两条命令
 >
 > > sudo config --global user.name "your github username"
@@ -98,11 +98,11 @@
 
 
 
-## 5. Typora的安装
+## Typora的安装
 
 [回到目录](#目录)
 
-### 5.1 执行以下命令安装
+### 1. 执行以下命令安装
 > `sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE`
 >
 > `sudo add-apt-repository 'deb https://typora.io linux/'`
@@ -113,11 +113,11 @@
 
 
 
-## 6. 安装QQ/TIM/微信
+## 安装QQ/TIM/微信
 
-[跳转到目录](#目录)
+[回到目录](#目录)
 
-## 6.1 安装TIM
+## 1. 安装TIM
 > - 第一步。安装deepin-wine环境。
 >
 > 在https://github.com/wszqkzqk/deepin-wine-ubuntu中下载zip包，我使用的是Git clone到本地
@@ -142,7 +142,7 @@
   > 进入deb文件下载路径，然后执行命令：`sudo dpkg -i xxxxx.deb`就可以了。之后就可以在所有程序中找到TIM了。
   >
 
-### 6.2 安装微信
+### 2. 安装微信
 > ubuntu安装完成后，会有一个“微信ubuntu版”，这个我试过扫码后不能登录，所以还是自己重新装一个吧
 >
 > - 第一步。从上面给的链接中下载微信的deb包。
@@ -165,40 +165,40 @@
 
 
 
-## 7. 安装网易云音乐
+## 安装网易云音乐
 
-[跳转到目录](#目录)
+[回到目录](#目录)
 
-### 7.1 下载网易云deb包
+### 1. 下载网易云deb包
 > 去网易云音乐的网管下载Linux的deb包。如下图
 >
 > ![网易云音乐下载](./img/netEasy.png)
 
-### 7.2 开始安装
+### 2. 开始安装
 > 进入deb包的路径，使用命令开始安装：`sudo dpkg -i netease-cloud-music_1.2.1_amd64_ubuntu_20190428.deb`，完成后没错误的话就是下载成功了，可在全部程序中查看
 
 
 
-## 8. ubuntu激活root
+## ubuntu激活root
 
-[跳转到目录](#目录)
+[回到目录](#目录)
 
-### 8.1  问题描述
+### 1. 问题描述
 > 刚装好的ubuntu的root账户是没有被激活的，但是我们依然可以使用sudo来使用一些普通用户受限的命令，但是如果现在要切换到root账户怎么办呢？
 
-### 8.2 解决方案
+### 2. 解决方案
 > 使用命令：`sudo password root`，然后会提示你为root用户创建密码，确认密码，完成后root账号就被激活了，现在可以使用命令`su`或者`su root`来切换到root账号下。
 
 
 
-## 9. 桌面便签的安装
+## 桌面便签的安装
 
-[目录](#目录)
+[回到目录](#目录)
 
-### 9.1 应用名称
+### 1. 应用名称
 > indicator-stickynotes
 
-### 9.2 安装
+### 2. 安装
 > `sudo add-apt-repository ppa:umang/indicator-stickynotes`
 > `sudo apt-get update `
 > `sudo apt-get install indicator-stickynotes `
@@ -219,7 +219,7 @@
 
 
 
-## 10. ubuntu下画图软件kolourpaint4安装
+## ubuntu下画图软件kolourpaint4安装
 
 [回到目录](#目录)
 
