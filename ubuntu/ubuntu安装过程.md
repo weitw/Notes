@@ -1,4 +1,23 @@
-<h3 id="0">目录</h3>
+<!-- GFM-TOC -->
+
+* [1. ubuntu无法联网的问题](#1. ubuntu无法联网的问题)
+    * [1. ubuntu无法联网的问题](#ubunt无法联网的问题)
+    * [Map](#1ubuntu无法联网的问题)
+* [二、容器中的设计模式](#二容器中的设计模式)
+    * [迭代器模式](#迭代器模式)
+    * [适配器模式](#适配器模式)
+* [三、源码分析](#三源码分析)
+    * [ArrayList](#arraylist)
+    * [Vector](#vector)
+    * [CopyOnWriteArrayList](#copyonwritearraylist)
+    * [LinkedList](#linkedlist)
+    * [HashMap](#hashmap)
+    * [ConcurrentHashMap](#concurrenthashmap)
+    * [LinkedHashMap](#linkedhashmap)
+    * [WeakHashMap](#weakhashmap)
+* [参考资料](#参考资料)
+<!-- GFM-TOC -->
+
 [1. ubutnu无法联网的问题](#1)
 
 ​		[1.1 问题描述](#1.1)
@@ -50,11 +69,15 @@
 [10. ubuntu下画图软件kolourpaint4安装](#10)
 
 
-<h3 id="1">1. ubutnu无法联网的问题</h3>
-<h4 id="1.1">1.1 问题描述</h4>
+
+### 1. ubutnu无法联网的问题
+
+#### 1.1 问题描述
+
 > 装了Ubuntu之后，发现无法联接网络，并且在终端输入命令`ifconfig`之后，也提示找不到命令
 
-<h4 id="1.2">1.2 解决方案</h4>
+#### 1.2 解决方案
+
 > - 在你的启动盘(可能是你的u盘或者光盘)里找到pool/main/d/dkms/dkms_2.6.1-4ubuntu1_all.deb这个文件，版本号什么的可能不一样，但是目录你找到相应的目录下对应的文件就可以了。
 >
 > ![bc](./img/dkms.png)
