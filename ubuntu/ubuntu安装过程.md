@@ -20,7 +20,7 @@
 
 * [桌面便签的安装](#桌面便签的安装)
 
-* [ubuntu下画图软件kolourpaint4安](#ubuntu下画图软件kolourpaint4安)
+* [ubuntu下画图软件kolourpaint4安装](#ubuntu下画图软件kolourpaint4安装)
 
 <!--/TOC-->
 
