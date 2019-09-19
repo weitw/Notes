@@ -29,9 +29,9 @@
    - [2.2.1 ubuntu常用软件安装及问题](./Linux/软件安装/ubuntu安装过程.md)
    - 包括：ubuntu联网问题、ifconfig找不到问题、激活root、软件安装（google浏览器、Git、Typora、QQ/TIM/微信、网易云音乐、桌面便签、截图工具）
 
-[3. markdown语法](./mkd/)
+[3. markdown语法](./markdown/)
 
-- [1. 基本语法](./mkd/first.md)
+- [1. 基本语法](./markdown/doc.md)
 
 <!--/TOC-->
 
