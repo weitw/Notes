@@ -3,24 +3,16 @@
 <!--TOC-->
 
 * [ubuntu无法联网的问题](#ubuntu无法联网的问题)
-
 * [提示ifconfig命令找不到](#提示ifconfig命令找不到)
-
 * [Google浏览器的下载](#Google浏览器的下载)
-
 * [Git下载](#Git下载)
-
 * [Typora的安装](#Typora的安装)
-
 * [安装QQ/TIM/微信](#安装QQ/TIM/微信)
-
 * [安装网易云音乐](#安装网易云音乐)
-
 * [ubuntu激活root](#ubuntu激活root)
-
 * [桌面便签的安装](#桌面便签的安装)
-
 * [ubuntu下画图软件kolourpaint4安装](#ubuntu下画图软件kolourpaint4安装)
+* [ubuntu安装VPN客户端](#ubuntu安装VPN客户端)
 
 <!--/TOC-->
 
@@ -235,6 +227,8 @@
 
 
 ## ubuntu安装VPN客户端
+
+[回到目录](#目录)
 
 1. 安装依赖
 
