@@ -14,6 +14,7 @@
 * [ubuntu下画图软件kolourpaint4安装](#ubuntu下画图软件kolourpaint4安装)
 * [ubuntu安装VPN客户端](#ubuntu安装VPN客户端)
 * [截图工具flameshot的安装](#截图工具flameshot的安装)
+* [搜狗输入法的安装](#搜狗输入法的安装)
 
 <!--/TOC-->
 
@@ -279,6 +280,8 @@
 
 ## 搜狗输入法的安装
 
+[回到目录](#目录)
+
 1. 安装输入框架fcitx
 
    `sudo apt install fcitx`
@@ -299,7 +302,7 @@
 
    - 然后我根据错误提示安装那些软件包，安装命令`sudo apt install 软件包名`,
 
-   - 安装过程又出现了一个问题，如下，然后执行`sudo apt --fix-broken install`![安装依赖包出错](./img/install_sogou_packege_error.png)
+     安装过程又出现了一个问题，如下，然后执行`sudo apt --fix-broken install`![安装依赖包出错](./img/install_sogou_packege_error.png)
 
    - 完成之后，执行
 
