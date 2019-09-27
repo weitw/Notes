@@ -13,6 +13,7 @@
 * [桌面便签的安装](#桌面便签的安装)
 * [ubuntu下画图软件kolourpaint4安装](#ubuntu下画图软件kolourpaint4安装)
 * [ubuntu安装VPN客户端](#ubuntu安装VPN客户端)
+* [截图工具flameshot的安装](#截图工具flameshot的安装)
 
 <!--/TOC-->
 
@@ -255,3 +256,62 @@
 4. 在订阅管理中添加订阅地址后回车。之后就可以看到那些节点了，不过这个时候应该还不能翻墙，如果可以那就忽略下面的步骤
 
 5. 在设置里打开网络，手动开启代理，设置相应的ip和端口之后，就可以正常上网了。
+
+## 截图工具flameshot的安装
+
+[回到目录](#目录)
+
+1. 命令行安装该软件
+
+   `sudo apt-get install flameshot`
+
+2. 命令行运行
+
+   `flameshot gui`
+
+   执行命令就会出现一个截图窗口，如下图
+
+   ![截图状态](./img/flameshot.png)
+
+3. 当然这样每次都输入命令不方便，可以设置快捷键。在设置-设备-键盘处添加就可以了, 比如我设置的快捷键是shift+ctrl+a
+
+![截图工具快捷键设置](./img/截图工具快捷键设置.png)
+
+## 搜狗输入法的安装
+
+1. 安装输入框架fcitx
+
+   `sudo apt install fcitx`
+
+2. 到搜狗输入法的官网下载linux版的搜狗输入法
+
+   [linux版搜狗收入法下载地址](https://pinyin.sogou.com/linux/?r=pinyin)
+
+3. 下载得到的是一个.deb包，进入文件下载路径，执行命令
+
+   - `sudo dpkg -i sogoupinyin_2.2.0.0108_amd64.deb`
+
+     这个地方根据自己下载的包的版本修改命令中的包名就行了。
+
+     不过我的出现了一点问题，如下图
+
+     ![安装包出错](./img/dpkg_sogou_error.png)
+
+   - 然后我根据错误提示安装那些软件包，安装命令`sudo apt install 软件包名`,
+
+   - 安装过程又出现了一个问题，如下，然后执行`sudo apt --fix-broken install`![安装依赖包出错](./img/install_sogou_packege_error.png)
+
+   - 完成之后，执行
+
+     `sudo apt update`，`sudo apt upgrade`
+
+   - 最后再次执行``sudo dpkg -i sogoupinyin_2.2.0.0108_amd64.deb``就没问题了。
+
+   - 配置搜狗输入法
+   
+     键盘输入法系统选择fcitx
+   
+     ![键盘输入法系统选择fcitx](./img/select_fcitx.png)
+   
+     最后重启就可以了。
+
