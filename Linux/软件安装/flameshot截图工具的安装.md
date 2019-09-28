@@ -10,8 +10,8 @@
 
    执行命令就会出现一个截图窗口，如下图
 
-   ![截图状态](/home/exile/project/Notes/Linux/软件安装/img/flameshot.png)
+   ![截图状态](./img/flameshot.png)
 
 3. 当然这样每次都输入命令不方便，可以设置快捷键。在设置-设备-键盘处添加就可以了, 比如我设置的快捷键是shift+ctrl+A
 
-![截图工具快捷键设置](/home/exile/project/Notes/Linux/软件安装/img/截图工具快捷键设置.png)
+![截图工具快捷键设置](./img/截图工具快捷键设置.png)
