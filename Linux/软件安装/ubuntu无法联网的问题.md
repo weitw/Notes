@@ -10,12 +10,12 @@ Ubuntu刚装好的时候会有很多的问题，比如gcc没安装之类的，�
 
 > - 在你的启动盘(可能是你的u盘或者光盘)里找到pool/main/d/dkms/dkms_2.6.1-4ubuntu1_all.deb这个文件，版本号什么的可能不一样，但是目录你找到相应的目录下对应的文件就可以了。
 >
-> ![bc](/home/exile/project/Notes/Linux/软件安装/img/dkms.png)
+> ![bc](./img/dkms.png)
 >
 > 然后在该目录下执行命令：`sudo dpkg -i dkms_2.6.1-4ubuntu1_all.deb`，
 >
 > - 第二步。找到ubuntu-18.04-desk-amd64/pool/restricted/b/bcmwl/bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu4_amd64这个文件
 >
-> ![bcmwl-kernel-source](/home/exile/project/Notes/Linux/软件安装/img/bcmwl.png)
+> ![bcmwl-kernel-source](./img/bcmwl.png)
 >
 > 然后执行`sudo dpkg -i bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu4_amd64`这个命令。如果没有错误的话，应该就可以连接网络了。

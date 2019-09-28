@@ -2,7 +2,7 @@
 
 PS在Linux系统中也可以使用，那就要使用wine环境。当然也可以安装Linux环境下的krita软件，它的功能类似于PS，如下图
 
-![krita软件打开效果](/home/exile/project/Notes/Linux/软件安装/img/krita_install.png)
+![krita软件打开效果](./img/krita_install.png)
 
 1. 安装命令
 
