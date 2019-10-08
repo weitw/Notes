@@ -93,3 +93,38 @@
 - 分析
 
   这是一种**不稳定**的排序方法。时间复杂度为O(n^2)，在排序过程仅需要一个元素的辅助空间用于数组元素值的交换，空间复杂度为O(1)。
+
+#### 2.3希尔排序
+
+略
+
+#### 2.4 快速排序
+
+- 概念
+
+  通过一趟排序将待排的记录划分为独立的两个部分，称为前半区和后半区，其中，前半区中记录的关键字均不大于后半区记录的关键字，然后再分别对这两部分记录继续进行快速排序。
+
+- 代码
+
+  ```java
+  public void sort4(int[] array, int left, int right) {
+          // 递归实现快排
+          if (left < right) {
+              int tmp = array[left];
+              int i = left, j = right;
+              while (i < j) {
+                  while (i < j && array[j] >= tmp) j--;
+                  array[i] = array[j];
+                  while (i < j && array[i] <= tmp) i++;
+                  array[j] = array[i];
+              }
+              array[i] = tmp;
+              sort4(array, left, i - 1);
+              sort4(array, i + 1, right);
+          }
+      }
+  ```
+
+- 分析
+
+  这是一种**不稳定**的排序方法，时间复杂度为**O(nlogn)**，空间复杂度为O(1)。该排序算法是平均性能最好的一种。但是如果初始记录序列基本有序时，即每次都是将序列划分为某一半序列的长度为0的情况，此时快速排序的时间复杂度将退化为**O(n^2)**。
