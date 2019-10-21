@@ -26,12 +26,21 @@
    - [2.1.4 yum操作](./Linux/Linux基础/yum.md)
 
 - [2.2 常见问题及软件安装](./Linux/软件安装/)
-   - [2.2.1 ubuntu常用软件安装及问题](./Linux/软件安装/ubuntu安装过程.md)
+   - [2.2.1 ubuntu常用软件安装及问题](./Linux/软件安装/READEME.md)
    - 包括：ubuntu联网问题、ifconfig找不到问题、激活root、软件安装（google浏览器、Git、Typora、QQ/TIM/微信、网易云音乐、桌面便签、截图工具）
 
 [3. markdown语法](./markdown/)
 
 - [1. 基本语法](./markdown/doc.md)
+
+[4.软考笔记](.ruankao)
+
+- [4.1 计算机基础](./ruankao/computer_basics)
+- [4.2 数据结构](./ruankao/data-structure)
+- [4.3 操作系统](./ruankao/OS)
+- [4.4 程序设计语言](./ruankao/programming_language)
+- [4.5 面向对象技术](./ruankao/面向对象技术.md)
+- [4.6 数据库技术](./ruankao/数据库技术.md)
 
 <!--/TOC-->
 
