@@ -1,6 +1,10 @@
 ## 安装eclipse
 
-1. 安装JDK过程省略了，直接下载eclipse [下载链接](https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/),
+1. 安装JDK
+
+   `sudo apt install openjdk-8-jdk`，JDK版本自行选择，命令执行完，执行`java -version`，出现了java的信息的话就说明成功安装了。
+   
+2. 下载eclipse [下载链接](https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/),
 
 2. 将下载的xxxxx.tar.gz文件移动到/opt
 
