@@ -30,14 +30,18 @@
 
    > 1. 配置JRES
    >
-   >    依次点击Window->preferences->Java->Install JRES，在右边弹出来的窗口中，如果显示的有你的JDK安装路径，那么就不用管。否则要点击右边的Add，将JDK路径导进去(我的在/usr/lib/jvm/java-8-openjdk-amd64)
+   > 依次点击Window->preferences->Java->Install JRES，在右边弹出来的窗口中，如果显示的有你的JDK安装路径，那么就不用管。否则要点击右边的Add，将JDK路径导进去(我的在/usr/lib/jvm/java-8-openjdk-amd64)
    >
    > 2. 加载源码src.zip
    >
-   >    在你要查看源码所弹出来的界面中，根据提示点击进入，然后需要将你的src.zip文件路径add进去。但是在我选择好文件之后，居然报错
+   > 在你要查看源码所弹出来的界面中，根据提示点击进入，然后需要将你的src.zip文件路径add进去。但是在我选择好文件之后，居然报错
    >
-   >    `the path 'usr/lib/jvm/java-8-openjdk-amd64/src.zip' does not exist`
+   > `the path 'usr/lib/jvm/java-8-openjdk-amd64/src.zip' does not exist`
+   >
+   > 3. 解决办法
    >
    >    然后我看了一下，这个文件是一个失效的链接文件，所以我们可以重新下载一个。使用命令
    >
-   >    `sudo apt install openjdk-8-source `来下载(这个地方根据你的jdk版本来下载相应的源码文件)，等执行完之后，这个src.zip会自动去替换之前的那么无效的文件。这时再尝试add就可以了。
+   > `sudo apt install openjdk-8-source `来下载(这个地方根据你的jdk版本来下载相应的源码文件)，等执行完之后，这个src.zip会自动去替换之前的那么无效的文件。这时再尝试add就可以了。
+   >
+   > 可以参考这个连接[解决src.zip does not exist的问题](https://askubuntu.com/questions/755853/how-to-install-jdk-sources)
