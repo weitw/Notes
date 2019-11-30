@@ -22,7 +22,7 @@
 - [1.9 JavaSE1](./Java/JavaSE1)
   + [1.9.1集合](./Java/JavaSE1/集合.md)
   + [1.9.2 内部类](./Java/JavaSE1/内部类.md)
-  + [1.9.3 时间相关的类](./Java/JavaSE1/时间相关的类)
+  + [1.9.3 时间相关的类](./Java/JavaSE1/时间相关的类.md)
 - [2.0 JavaSE2](./Java/JavaSE2)
   + [2.0.1 设计模式](./Java/JavaSE2/设计模式.md)
   + [2.0.2 异常处理](./Java/JavaSE2/异常处理.md)
