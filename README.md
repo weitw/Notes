@@ -1,58 +1,28 @@
 ## 摘要
 
-> 该项目是平时做的一些笔记，会长期更新。
+该仓库主要是平时整理的笔记，包括Java、Linux、数据结构和一些编辑工具的使用笔记。
 
 ## 目录
 
 <!--TOC-->
 
-[1. Java](./Java/)
+1. <a href="./Java/" style="text-decoration:none;">Java</a>
 
-- [1.1 变量](./Java/变量.md)
-- [1.2 数组](./Java/数组.md)
-- [1.3 容器](./Java/容器.md)
-- [1.4 多线程](./Java/多线程.md)
-- [1.5 异常处理](./Java/异常处理.md)
-- [1.6 类](./Java/类.md)
-- [1.7 Lambda表达式](./Java/Lambda表达式.md)
-- [1.8 JavaOOP](./Java/JavaOOP)
-  + [1.8.1包装类](./Java/JavaOOP/包装类.md)
-  + [1.8.2 面向对象](./Java/JavaOOP/面向对象.md)
-  + [1.8.3 字符串相关的类](./Java/JavaOOP/字符串相关的类.md)
-- [1.9 JavaSE1](./Java/JavaSE1)
-  + [1.9.1集合](./Java/JavaSE1/集合.md)
-  + [1.9.2 内部类](./Java/JavaSE1/内部类.md)
-  + [1.9.3 时间相关的类](./Java/JavaSE1/时间相关的类.md)
-- [2.0 JavaSE2](./Java/JavaSE2)
-  + [2.0.1 设计模式](./Java/JavaSE2/设计模式.md)
-  + [2.0.2 异常处理](./Java/JavaSE2/异常处理.md)
-  + [2.0.3 I/O流](./Java/JavaSE2/IO流.md)
+   <a href="./Java/README.md" style="text-decoration:none;">Java笔记目录</a></br>
+   
+2. <a href="./Linux/" style="text-decoration:none;">Linux</a>
 
-[2. Linux](./Linux/)
+   <a href="./Linux/软件安装/" style="text-decoration:none;">Ubuntu环境下的一些软件安装</a></br>
 
-- [2.1 Linux基础](./Linux/Linux基础/)
+   ​        <a href="./Linux/软件安装/README.md" style="text-decoration:none;">软件安装目录</a></br>
 
-   - [2.1.1 磁盘操作](./Linux/Linux基础/DiskManage.md)
-   - [2.1.2 用户管理](./Linux/Linux基础/userGroupManage.md)
-   - [2.1.3 vim操作](./Linux/Linux基础/vim.md)
-   - [2.1.4 yum操作](./Linux/Linux基础/yum.md)
+   <a href="./Linux/Linux基础/" style="text-decoration:none;">Linux基础知识</a></br>
 
-- [2.2 常见问题及软件安装](./Linux/软件安装/)
-   - [2.2.1 ubuntu常用软件安装及问题](./Linux/软件安装/READEME.md)
-   - 包括：ubuntu联网问题、ifconfig找不到问题、激活root、软件安装（google浏览器、Git、Typora、QQ/TIM/微信、网易云音乐、桌面便签、截图工具）
+3. <a href="./markdown/" style="text-decoration:none;">markdown的使用</a>
 
-[3. markdown语法](./markdown/)
+   <a href="./markdown/doc.md" style="text-decoration:none;">markdown语法</a></br>
 
-- [1. 基本语法](./markdown/doc.md)
-
-[4.软考笔记](.ruankao)
-
-- [4.1 计算机基础](./ruankao/computer_basics)
-- [4.2 数据结构](./ruankao/data-structure)
-- [4.3 操作系统](./ruankao/OS)
-- [4.4 程序设计语言](./ruankao/programming_language)
-- [4.5 面向对象技术](./ruankao/面向对象技术.md)
-- [4.6 数据库技术](./ruankao/数据库技术.md)
+4. <a href="./ruankao/" style="text-decoration:none;">软件设计师笔记整理</a>
 
 <!--/TOC-->
 
