@@ -14,7 +14,7 @@
 
    <a href="./Linux/软件安装/" style="text-decoration:none;">Ubuntu环境下的一些软件安装</a></br>
 
-   ​        <a href="./Linux/软件安装/README.md" style="text-decoration:none;">软件安装目录</a></br>
+   > <a href="./Linux/软件安装/README.md" style="text-decoration:none;">软件安装目录</a></br>
 
    <a href="./Linux/Linux基础/" style="text-decoration:none;">Linux基础知识</a></br>
 
