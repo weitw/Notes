@@ -309,7 +309,7 @@ console.log($("span:empty"));
 | 获取 | `obj.html()`<br />`obj.text()` | `ele.innerHTML` |
 | 修改 | `obj.html("值")` | `ele.innerHTML="值"` |
 | 3. 节点的属性 |  |  |
-| 获取 | `obj.attr("属性")` | `ele.getAttribute("属性")` |
+| 获取 | `obj.attr("属性")` | ``ele.属性`<br />ele.getAttribute("属性")` |
 | 修改 | `obj.attr("属性"，"属性值")` | `ele.属性=属性值`<br />`ele.setAttrribute("属性","属性值")` |
 | 4. 节点的样式 |  |  |
 | 获取 | `obj.css()` | `ele.style` |
@@ -422,7 +422,58 @@ jQuery对象.on("事件名", function() { })；
    </script>
    ```
 
-   
+
+
+### 6. jQuery处理事件冒泡
+
+jQuery事件触发之后，也会产生event事件对象（jQuery对象）
+
+处理事件冒泡：`e.stopPropagation();`
+
+### 7. 合成事件
+
+`obj.hover(mouseover,mouseout)`；
+
+### 8. jQuery动画效果
+
+| 函数              | 描述 |
+| ----------------- | ---- |
+| `obj.hide()`      | 隐藏 |
+| `obj.show()`      | 显示 |
+| `obj.fadeIn()`    | 淡入 |
+| `obj.fadeOut()`   | 淡出 |
+| `obj.slideUp()`   | 收起 |
+| `obj.slideDown()` | 展开 |
+
+动画效果
+
+obj.动画函数(时间[，回调函数]);
+
+时间：整个动画完成需要的时间，ms值
+
+回调函数：可选，动画完成之后需要执行的操作
+
+### 9. 自定义动画
+
+obj.animate({动画效果}，时间，[回调函数])
+
+{}描述的是动画执行之后元素的效果
+
+### 10. Java对象转成JSON字符串
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

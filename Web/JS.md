@@ -511,9 +511,9 @@ String对象支持正则的函数
 
 #### 6.2 外部对象
 
-##### 6.2.1 BOM(Broswer Object Model)
+##### 6.2.1 BOM
 
-浏览器对象模型。用来访问和操作浏览器窗口，使js有能力和浏览器对话。执行操作不与页面内容发生直接关系，没有相关标准，但被广泛使用
+Broswer Object Model。浏览器对象模型。用来访问和操作浏览器窗口，使js有能力和浏览器对话。执行操作不与页面内容发生直接关系，没有相关标准，但被广泛使用
 
 window是前台最大的对象，表示浏览器窗口，全部的js都是全局属性、全局对象、全局函数。
 
@@ -621,9 +621,9 @@ window的5个属性可以分别获取其对应的5个对象
 
    
 
-##### 6.2.2 DOM(Document Object Model)
+##### 6.2.2 DOM
 
-文档对象模型。用来操作文档，定义了访问和操作HTML文档的标准方法，应用程序通过DOM操作来实现对HTML文档数据的操作。当页面被加载时，浏览器会创建页面的文档对象模型（DOM树），通过可编程的对象模型，js能够创建动态的HTML，包括HTML元素、属性、样式、事件
+Document Object Model。文档对象模型。用来操作文档，定义了访问和操作HTML文档的标准方法，应用程序通过DOM操作来实现对HTML文档数据的操作。当页面被加载时，浏览器会创建页面的文档对象模型（DOM树），通过可编程的对象模型，js能够创建动态的HTML，包括HTML元素、属性、样式、事件
 
 在页面加载的时候，由浏览器生成的整个HTML文档，操作文档中任何内容，都需要通过document
 
@@ -796,13 +796,88 @@ js对DOM的操作有：查找、读取、修改、新增、删除
    | onsubmit | 表单提交                       |
    | onload   | 加载                           |
 
-   
 
 
 
+#### 6.3 js自定义对象
+
+自定义对象时一种特殊的数据类型，由属性和方法封装而成。
+
+属性：与对象有关的值，访问方式是：`对象引用.属性名`
+
+方法：对象可以执行的行为或可以完成的功能，访问方式：`对象引用.方法名`
+
+##### 6.3 创建自定义对象的三种方式
+
+###### 6.3.1 直接创建Object对象
+
+```js
+function f1(){
+    var user = new Object();
+    // 属性
+    user.name = "张三";
+    user.age = 23;
+    // 方法
+    user.work = function(){
+        alert("我是员工");
+    }
+    // 测试
+    console.log(user.name);
+    console.log(user.age);
+    user.work();
+}
+```
 
 
 
+###### 6.3.2 "构造器"创建对象
+
+```js
+// 构造器创建对象
+function Student(name, age){
+    this.name = name;
+    this.age = age;
+    this.work = function(){
+        console.log("我是学生");
+    }
+}
+
+function f2(){
+    var s = new Student("李四",32);
+    console.log(s.name);
+    console.log(s.age);
+    s.work();
+}
+```
+
+
+
+###### 6.3.3 JSON创建对象
+
+JSON：是一个轻量级的数据交换格式
+
+使用属性名：属性值的方式定义，名称都需要用双引号引起来，多个属性直接用逗号隔开
+
+```js
+// JSON创建对象
+function f3(){
+    var boss = {
+        "name":"王五",
+        "age":23,
+        "work":function(){
+            console.log("我是老板");
+        }
+    }
+    // 测试
+    console.log(boss.name);
+    console.log(boss.age);
+    boss.work();
+}
+```
+
+
+
+案例：全选和反选操作
 
 
 
