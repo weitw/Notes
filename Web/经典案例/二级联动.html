@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>二级联动</title>
+	</head>
+	<body>
+		省份：
+		<select id="pro" onchange="showCity()">
+			<option value="0">不限</option>
+			<option value="1">江苏</option>
+			<option value="2">安徽</option>
+			<option value="3">山东</option>		
+		</select>
+		城市：
+		<select id="city">
+			<option value="-1">不限</option>
+		</select>
+	</body>
+	<script>
+		var data = [["不限"],["南京","南通","苏州"],
+		["安庆市","黄山市","池州市"],["烟台","济南","青岛"]];
+		var ele = document.getElementsByTagName("select");
+		function show(i){
+			var cities = data[i];
+			console.log(cities);
+			// 删除之前存在的子节点
+			var childrens = ele[1].childNodes;
+			for (var j = 0; j < childrens.length; j++){
+				ele[1].removeChild(childrens[j]);
+			}
+			// 增加子节点
+			for (var j = 0; j < cities.length; j++){
+				// 创建节点
+				var newEle = document.createElement("option");
+				newEle.innerText = cities[j];
+				ele[1].appendChild(newEle);
+			}
+		}
+		function showCity(){
+			var index = ele[0].value;
+			console.log(index);
+			show(index);
+		}
+		
+	</script>
+</html>
