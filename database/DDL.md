@@ -21,7 +21,7 @@
 
    - 字段有默认值，用default
 
-2. 创建部门表(dept_wtw)
+2. 创建部门表(dept)
 
    分析：
 
@@ -92,7 +92,7 @@
 6. 总结
 
    ```mysql
-   create:创建表结构
+   create table:创建表结构
    alter:修改表结构(
    	add:增加字段
        modify:修改字段类型，不能修改字段名
@@ -176,7 +176,7 @@
 
 ##### 1.3.4 外键约束
 
-外键约束（foreign key 简称jk）
+外键约束（foreign key 简称fk）
 
 外键约束定义在两张表的两个字段上，用来保证这两个字段的关系
 
@@ -196,8 +196,7 @@ create table temp_emp(
 	empno int primary key,
     ename varchar(20) not null,
     deptno int,
-    constraint temp_emp_deptno_fk foreign key(deptno) 
-    references temp_dept(deptno)
+    constraint temp_emp_deptno_fk foreign key(deptno) references temp_dept(deptno)
 );
 ```
 

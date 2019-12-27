@@ -80,7 +80,7 @@ savepoint A;  # 保存点A
 insert into temp values(2);
 savepoint B;  # 保存点A
 
-insert into temp values(2);
+insert into temp values(3);
 savepoint C;  # 保存点A
 ```
 
@@ -141,8 +141,6 @@ where deptno=20;
    `update view_emp set ename='郭靖' where ename='郭靖2';`
 
    `select ename from emp where empno=1004;`
-
-4. 基表和视图进行DML操作
 
    基表进行DML操作会改变视图的显示，对视图进行DML操作，同样会该表基表的显示，视图只是基表的投影。
 
