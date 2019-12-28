@@ -13,6 +13,8 @@
 
    1.2 Set
 
+   - <a href="./HashSet.md" style="text-decoration:none;">HashSet</a>
+   
    1.3 Map
 
 <!--/TOC-->
