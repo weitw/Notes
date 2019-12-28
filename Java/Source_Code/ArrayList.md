@@ -24,10 +24,10 @@ List集合下常用的两个实现类是ArrayList和LinkedList，在[LinkedList]
 
    源码里的注释有点多，注释我就没有复制过来，简单说一下这些成员变量和常量的作用。
 
-   - DEFAULT_CAPACITY=10，这个常量表示的是ArrayList集合的容量，当我们用`new ArrayList<>();`来创建对象时，该集合在添加元素的时候，会默认将容量设置为10.
-   - EMPTY_ELEMENTDATA={}，这个常量表示一个空数组
-   - Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {}，我们使用无参构造器创建ArrayList对象的时候，元素集合就默认等于这个值
-   - Object[] elementData，上面已经介绍过，ArrayList底层使用数组实现的，这个elementData就是用来实现该集合的。
+   - `DEFAULT_CAPACITY=10`，这个常量表示的是ArrayList集合的容量，当我们用`new ArrayList<>();`来创建对象时，该集合在添加元素的时候，会默认将容量设置为10.
+   - `EMPTY_ELEMENTDATA={}`，这个常量表示一个空数组
+   - `Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {}`，我们使用无参构造器创建ArrayList对象的时候，元素集合就默认等于这个值
+   - `Object[] elementData`，上面已经介绍过，ArrayList底层使用数组实现的，这个elementData就是用来实现该集合的。
    - size，表示的是集合中元素个数
 
    下面来仔细其中的细节
@@ -42,7 +42,7 @@ List集合下常用的两个实现类是ArrayList和LinkedList，在[LinkedList]
      }
      ```
 
-     当我们不指定任何的参数时，就指定`this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;`，可能有人会想，EMPTY_ELEMENTDATA和DEFAULTCAPACITY_EMPTY_ELEMENTDATA都是一个空的数组，用一个不就可以了吗，这个在初次添加元素的时候就体现出作用了。
+     当我们不指定任何的参数时，就指定`this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;`，可能有人会想，`EMPTY_ELEMENTDATA`和`DEFAULTCAPACITY_EMPTY_ELEMENTDATA`都是一个空的数组，用一个不就可以了吗，这个在初次添加元素的时候就体现出作用了。
 
    - 指定结合容量的有参构造器
 
@@ -59,7 +59,7 @@ List集合下常用的两个实现类是ArrayList和LinkedList，在[LinkedList]
      }
      ```
 
-     注意initialCapacity == 0这个条件时，this.elementData = EMPTY_ELEMENTDATA;这段代码。因为集合在初始创建时都是空的，那么在第一次增加元素的时候，我们是不是要判断一下这个空的集合是我们创建时指定了容量为0创建的，还是使用无参构造器创建的呢。这两者在扩容时是不一样的。
+     注意`initialCapacity == 0`这个条件时，`this.elementData = EMPTY_ELEMENTDATA;`这段代码。因为集合在初始创建时都是空的，那么在第一次增加元素的时候，我们是不是要判断一下这个空的集合是我们创建时指定了容量为0创建的，还是使用无参构造器创建的呢。这两者在扩容时是不一样的。
 
    - 参数为一个集合的构造器
 

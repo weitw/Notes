@@ -8,8 +8,8 @@
 
    1.1 List
 
-   - <a href="./Java/Source_Code/ArrayList.md" style="text-decoration:none;">ArrayList</a>
-   - <a href="./Java/Source_Code/LinkedList.md" style="text-decoration:none;">LinkedList</a>
+   - <a href="./ArrayList.md" style="text-decoration:none;">ArrayList</a>
+   - <a href="./LinkedList.md" style="text-decoration:none;">LinkedList</a>
 
    1.2 Set
 
