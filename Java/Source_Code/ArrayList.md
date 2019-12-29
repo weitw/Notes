@@ -101,7 +101,9 @@ List集合下常用的两个实现类是ArrayList和LinkedList，在[LinkedList]
            ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));
    }
    
-   /* 调用上面的方法后，会先执行下面这个方法，就是我们上面说的DEFAULTCAPACITY_EMPTY_ELEMENTDATA的作用了，因为如果elementData等于这个值的话，说明是调用无参构造器创建的集合对象，那么初始容量应该要为10，所以这方法就是筛选以下。
+   /* 调用上面的方法后，会先执行下面这个方法，就是我们上面说的DEFAULTCAPACITY_EMPTY_ELEMENTDATA的作用了，
+   因为如果elementData等于这个值的话，说明是调用无参构造器创建的集合对象，那么初始容量应该要为10，所以这方法
+   就是筛选以下。
    如果是第一次增加元素，并且是要使用默认容量时，这个方法返回10，否则返回的是size+1，即此时集合长度+1
    */
    private static int calculateCapacity(Object[] elementData, int minCapacity) {
@@ -111,9 +113,14 @@ List集合下常用的两个实现类是ArrayList和LinkedList，在[LinkedList]
            return minCapacity;
    }
    
-   /* 上面方法执行完后返回的参数，会作为下面这个方法的参数，即要么是10，要么是size+1。modCount++不用管，这表示的是集合被操作的次数。
-   这个方法的作用就是判断集合是否需要扩容。可能有人会疑惑，minCapacity=size+1，elementData.length不应该就是size的大小吗，那这个地方是不是永远都会为true，然后每次添加元素都扩容呢。不是的，说明以下，元素确实是放在elementData数组里，但是这个数组的长度（elementData.length）是ArrayList集合对象的最大容量，真正的数据是不一定放满这个集合的，例如
-   elementData=["a", "b", "c", null, null, null, null]，看出来了吗，真正的元素个数（size）只是3，length为7。所以下面这个方法中为true的条件是，元素已经满了。
+   /* 上面方法执行完后返回的参数，会作为下面这个方法的参数，即要么是10，要么是size+1。modCount++不用管，这表
+   示的是集合被操作的次数。
+   这个方法的作用就是判断集合是否需要扩容。可能有人会疑惑，minCapacity=size+1，elementData.length不应该就是
+   size的大小吗，那这个地方是不是永远都会为true，然后每次添加元素都扩容呢。不是的，说明以下，元素确实是放在
+   elementData数组里，但是这个数组的长度（elementData.length）是ArrayList集合对象的最大容量，真正的数据是不一
+   定放满这个集合的，例如
+   elementData=["a", "b", "c", null, null, null, null]，看出来了吗，真正的元素个数（size）只是3，length为7。所以下面这
+   个方法中为true的条件是，元素已经满了。
    */
    private void ensureExplicitCapacity(int minCapacity) {
            modCount++;
@@ -123,8 +130,10 @@ List集合下常用的两个实现类是ArrayList和LinkedList，在[LinkedList]
    }
    
    /* 这里补充以下，ArrayList中还定义了一个常量
-   private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8; 是当元素容量到达这个值的时候，会进行特殊的处理（容量最大只能到Integer.MAX_VALUE），不然就会溢出。下面方法中的>>符号表示的是除2
-   也就是newCapacity=3(newCapacity)/2，容量增加一半。根据两条判断，最后确定扩容后的数组容量，然后就是利用Arrays.copyOf()方法返回一个扩容后的数组，这就实现了数组的集合的扩容。
+   private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8; 是当元素容量到达这个值的时候，会进行特殊的处理
+   （容量最大只能到Integer.MAX_VALUE），不然就会溢出。下面方法中的>>符号表示的是除2
+   也就是newCapacity=3(newCapacity)/2，容量增加一半。根据两条判断，最后确定扩容后的数组容量，然后就是利用
+   Arrays.copyOf()方法返回一个扩容后的数组，这就实现了数组的集合的扩容。
    */
    private void grow(int minCapacity) {
            // overflow-conscious code
