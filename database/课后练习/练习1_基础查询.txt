@@ -1,0 +1,46 @@
+1、查询全部学生信息
+select * from studentinfo;
+
+2、查询'张三'学生信息
+select * from studentinfo where stuname='张三';
+
+3、查询学生的姓名和联系方式，没有联系方式的提示'No Stutel'
+select stuname,ifnull(stutel,'No Stutel') from studentinfo;
+
+4、查询学生的姓名和家庭住址，数据显示使用连接符
+select concat(stuname,stuaddr) as 'stuname+stuaddr' from studentinfo;
+
+5、查询课程号和成绩
+select st.stuname,sc.classno,sc.score from scoreinfo sc,studentinfo st where sc.stuno=st.stuno;
+
+6、查询001课程成绩是91或95学生的学号
+select stuno,classno,score
+from scoreinfo
+where classno=001 and score in(91,95);
+
+7、查询所有姓名包含'孙'的学生信息
+//模糊查询
+select * from studentinfo where stuname like '%孙%';
+// 正则表达式
+select stuno,stuname from studentinfo where stuname regexp '孙';
+
+8、查询所有没电话的学生信息
+select * from studentinfo where stutel is null;
+
+9、查询所有成绩优秀(大于90)和成绩不及格(低于60)的学生学号和课程号。
+select stuno,classno,score
+from scoreinfo 
+where score not between 60 and 90;
+
+10、查询哪些学生有联系方式
+select stuname,stutel from studentinfo where stutel is not null;
+
+11、查询学生姓名的长度
+select stuname,length(stuname) length from studentinfo;
+
+12、查询87年以后出生的学生信息
+select stuname,stubirth from studentinfo where stubirth>='1987-12-31';
+
+
+
+

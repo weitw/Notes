@@ -1,0 +1,54 @@
+1、给定一个数据123.456,按照指定格式显示,要求四舍五入保留2位，截取到小数点后1位。
+select truncate(round(123.456,2),1);
+
+2、获取系统当前时间
+select now();
+或者 select now() from dual;
+
+3、按照指定要求显示时间'%X-%m-%d %H:%i:%s'
+select date_format(now(),'%X-%m-%d %H:%i:%s');
+
+4、查询所有学生信息,按照出生日期从大到小排序
+select stuname,stubirth from studentinfo order by stubirth desc;
+
+5、按课程号升序，同一个课程按成绩降序排序
+select classno,score
+from scoreinfo
+order by 1 asc,2 desc;
+
+6、计算每门课程的最高分和最低分
+select classno,max(score) max_score,min(score) min_score
+from scoreinfo
+group by classno
+
+7、计算课程平均分大于80的课程号
+select classno,avg(score)
+from scoreinfo
+group by classno
+having avg(ifnull(score,0))>80;
+
+8、计算每个学生的成绩总和
+select st.stuname,sum(score)
+from scoreinfo sc,studentinfo st
+group by sc.classno;
+
+select stuno,sum(score)
+from scoreinfo
+group by stuno;
+
+9、查询学生成绩总分大于250
+select stuno,sum(score)
+from scoreinfo
+group by stuno
+having sum(score)>250;
+
+10、显示昨天，今天，明天的时间
+select adddate(now(),-1) '昨天',now() '今天',adddate(now(),1) '明天' from dual;
+
+
+
+
+
+
+
+

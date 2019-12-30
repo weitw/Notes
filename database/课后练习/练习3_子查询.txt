@@ -1,0 +1,107 @@
+1、查询每个课程最低分的学生学号
+select classno,stuno,score
+from scoreinfo
+where score=any(
+select min(score)
+from scoreinfo
+group by classno
+);
+
+2、查询001课程最高成绩的学生学号
+select score,stuno
+from scoreinfo
+where score=(
+select max(score)
+from scoreinfo
+where classno=1
+);
+
+3、查询成绩总和比5003高的学生
+select stuno,sum(score)
+from scoreinfo
+group by stuno
+having sum(score)>(
+	select sum(score)
+	from scoreinfo
+	where stuno=5003
+);
+
+4、查询'张三'有哪些课程号(两个'张三')
+select classno,stuno
+from scoreinfo
+where stuno=any(
+	select stuno
+	from studentinfo
+	where stuname='张三'
+);
+
+5、查询学生有哪些课程(非关联子查询)
+   //满足课程表中数据能在成绩表中找到匹配记录
+select classname,classno
+from classinfo
+where classno in(
+	select distinct classno
+	from scoreinfo
+);
+
+6、查询学生有哪些课程(关联子查询)
+select classno,classname
+from classinfo c
+where exists(
+	select 1
+	from scoreinfo
+	where classno=c.classno
+);
+
+7、学生没有哪些课程
+   insert into classinfo values(004,'网页');
+
+select classname,classno
+from classinfo
+where classno not in(
+	select distinct classno
+	from scoreinfo
+	where classno is not null
+);
+
+8、查询课程低于本课程平均成绩的学生
+select stuno,score
+from scoreinfo s
+where score<(
+	select avg(ifnull(score,0))
+	from scoreinfo
+	where classno=s.classno
+);
+
+9、查询001课程低于本课程平均成绩的学生
+select stuno,classno,score
+from scoreinfo
+where classno=1 and score<(
+select avg(ifnull(score,0))
+from scoreinfo
+where classno=1
+);
+	
+10、查询课程人数比001课程人数多
+select classno,count(*)
+from scoreinfo
+group by classno
+having count(*)>(
+	select count(*)
+	from scoreinfo
+	where classno=1
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
