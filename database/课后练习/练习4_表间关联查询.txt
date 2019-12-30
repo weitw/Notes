@@ -1,0 +1,92 @@
+1、查询课程成绩最高分和课程名，按照课程名排序
+select max(score),classname
+from scoreinfo sc join classinfo cl
+on sc.classno=cl.classno
+group by cl.classname
+order by convert(classname using utf8);
+
+2、查询平均分大于80分的学生的姓名，按照姓名排序
+
+// 非关联子查询
+select stuno,stuname
+from studentinfo
+where stuno in(
+	select stuno
+	from scoreinfo
+	group by stuno
+	having avg(score)>80
+)
+order by stuname;
+
+// 表间关联子查询
+select sc.stuno,stuname,avg(ifnull(score,0))
+from scoreinfo sc join studentinfo st
+on sc.stuno=st.stuno
+group by sc.stuno
+having avg(ifnull(score,0))>80
+order by convert(stuname using utf8);
+
+3、'英语'课的平均分数，最低，最高分数
+select sc.classno,avg(ifnull(score,0)),min(score),max(score)
+from scoreinfo sc join classinfo cl
+on sc.classno=cl.classno
+group by sc.classno
+having cl.classname='英语';
+
+// 或者
+select sc.classno,avg(ifnull(score,0)),min(score),max(score),classname
+from scoreinfo sc join classinfo cl
+on sc.classno=cl.classno and cl.classname='英语';
+
+4、最低分比最高分低的超过40分的课程名
+select sc.classno,classname,max(score),min(score)
+from scoreinfo sc join classinfo cl
+on sc.classno=cl.classno
+group by sc.classno
+having max(score)-min(score)>40;
+
+5、'日语'课不及格的人数
+
+select count(*),stuno,score,classname
+from scoreinfo sc join classinfo cl
+on sc.classno=cl.classno
+where classname='日语' and ifnull(score,0)<60;
+
+6、查询'李四'的考试总分数
+select stuname,sum(score)
+from scoreinfo sc join studentinfo st
+on sc.stuno=st.stuno
+where stuname='李四';
+
+7、查询没参加过考试的学生的姓名、性别
+select stuname,stusex
+from studentinfo st left join scoreinfo sc
+on st.stuno=sc.stuno
+where score is null;
+
+8、查询每个学生的最高分数
+select stuno,max(score)
+from scoreinfo
+group by stuno;
+
+select stuname,st.stuno,max(score)
+from studentinfo st left join scoreinfo sc
+on st.stuno=sc.stuno
+group by stuno;
+
+9、查询每个学科的最低分数
+select cl.classno,classname,min(score)
+from classinfo cl left join scoreinfo sc
+on cl.classno=sc.classno
+group by cl.classno;
+
+10、查询全部学生的'001'课程成绩
+	分析:
+	考试 001     85
+	考试 没考001 null
+	没有考试     null
+select st.stuno,stuname,score
+from studentinfo st left join scoreinfo sc
+on st.stuno=sc.stuno and sc.classno=001; 
+
+
