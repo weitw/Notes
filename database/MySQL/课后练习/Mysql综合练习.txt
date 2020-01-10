@@ -1,0 +1,584 @@
+01
+1、查询员工表中薪水大于5600的员工姓名和薪水
+select ename,salary
+from emp
+where salary>5600;
+
+2、查询员工表中员工号为1008的员工姓名和部门号
+select ename,deptno
+from emp
+where empno=1008;
+
+3、查询员工表中薪水不在6000到8000的员工的姓名和薪水
+select ename,salary
+from emp
+where salary not between 6000 and 8000;
+
+4、查询员工表中20和30号部门的员工姓名和部门号
+select ename,deptno
+from emp
+where deptno in(20,30);
+
+5、查询员工表中没有领导的员工姓名及职位，按职位排序
+select ename,position
+from emp
+where leader is null
+order by position asc
+
+6、查询员工表中有奖金的员工姓名、薪水、奖金，按薪水降序排列
+select ename,salary,bonus
+from emp
+where bonus is not null
+order by salary desc;
+
+7、查询员工表中职位的第二个字符是'a'的员工姓名
+select ename,position
+from emp
+where position regexp '^.a';
+
+8、查询部门表中部门名字和所在城市
+select dname,location
+from dept;
+
+9、查询员工表中不重复的职位
+select distinct position
+from emp;
+
+10、连接员工表中的员工名字、职位、薪水，列直接用逗号连接，列头显示成OUT_PUT
+select concat(ename,',',position,',',salary) OUT_PUT
+from emp;
+
+11、查询员工表中员工工号、姓名、薪水，以及薪水提高20%后的结果
+select empno,ename,salary,ifnull(salary,0)*1.2
+from emp;
+
+12、查询员工的姓名和薪水，条件限定为薪水必须大于7200，并对查询结果按入职时间进行排序，
+早入职排在前面，晚入职排在后面
+select ename,salary,hiredate
+from emp
+where ifnull(salary,0)>7200
+order by hiredate;
+
+13、查询除了'研发部'部门还有哪些部门
+select dno,dname
+from dept
+where dname != '研发部';
+
+=========================================================================================
+02
+1、将员工的姓名按首字母排序，并列出名字的长度
+select ename,length(ename)
+from emp
+order by convert(ename using gbk);
+
+2、现有数据表Customer,其结构如下：
+cust_id int primary key,
+cname varchar(25) not null,
+birthday date,
+account int
+1)构造SQL语句，列出Customer数据表中
+每个客户的信息。
+如果客户生日未提供，则该列值
+显示'not available'。
+如果没有余额信息，则显示'no account'
+select cust_id,cname,ifnull(birthday,'not availble'),ifnull(account,'no account')
+from Customer;
+
+2)构造SQL语句，列出生日在1987年客户的全部信息
+select *
+from Customer
+where birthday is not null and year(birthday)=1987;  # 这儿写成'1987'也可以
+
+3)构造SQL语句，列出客户账户的余额总数
+select sum(acount)
+from Customer;
+
+3、按照'2009-4-11 20:35:10'格式显示系统时间
+select date_format(now(),'%X-%m-%d %H:%i:%s');
+
+4、构造SQL语句查询员工表中员工编号、姓名，以及月收入(薪水+奖金)，注意有的员工可能
+没有奖金或薪水
+select empno,ename,ifnull(salary,0)+ifnull(bonus,0) sb
+from emp;
+
+5、列出每个员工的姓名、薪水、涨薪后工资(涨幅为8%)，元为单位进行四舍五入
+select ename,salary,round(ifnull(salary,0)*1.08) s
+from emp;
+
+6、查询各个职位的员工人数
+select position,count(*)
+from emp
+where position is not null
+group by position;
+
+7、查询员工最高薪水和最低薪水的差距，列名为DIFFERENCE
+select max(salary)-min(salary) DIFFERENCE
+from emp;
+
+8、哪一子句可实现SELECT语句查询员工平均薪水小于5000的部门信息？
+select deptno, avg(ifnull(salary,0))
+from emp
+where deptno is not null
+group by deptno
+having avg(salary)<5000;
+
+A.GROUP BY dept_id WHERE 
+AVG(salary)<5000
+B.GROUP BY AVG(salary)
+ HAVING AVG(salary)<5000
+C.GROUP BY dept_id 
+HAVING AVG(salary)<5000
+D.GROUP BY AVG(salary)<5000
+答案：C
+
+9、试图使用下面句子查询数据
+select 100/ifnull(quantity,0) 
+from inventory;
+quantity为空值时，将导致出错，
+其原因是？
+A、除数表达式为空值
+B、函数参数数据类型不一致
+C、空值不能被转成实际值
+D、除数表达式为零除数0
+答案：D
+
+10、Student表的表结构
+sid_id int
+start_date date
+end_date date
+在start_date列上使用哪些函数是正确的？
+A.sum(start_date)
+B.count(start_date)
+C.avg(start_date,end_date)
+D.min(start_date)
+答案：BD
+
+11、当执行以下查询语句
+SELECT empno,ename
+from emp_xu
+where empno=7782 or empno=7876;
+在WHERE语句中，可以实现与OR相同功能
+的操作符是：
+A.IN
+B.BETWEEN...AND..
+C.LIKE
+D.AND
+答案：A
+==========================================================================================
+03
+1、显示所有员工的姓名、部门号和部门名称
+select e.ename,e.deptno,d.dname
+from emp e,dept d
+where e.deptno=d.dno;
+
+2、查询在'南京'工作的员工的姓名、职位、部门号、部门名称
+就是工作的部门在南京
+select e.ename,e.position,e.deptno,d.dname
+from emp e,dept d
+where e.deptno=d.dno and d.location='南京';
+
+3、查询所有员工的员工号、姓名以及他的领导的员工号和姓名
+select e1.empno,e1.ename,e1.leader,e2.ename
+from emp e1 join emp e2
+on e1.leader=e2.empno;
+
+4、查询各部门员工姓名和他们所在位置
+select ename,e.deptno,d.dname,location
+from emp e left join dept d
+on e.deptno=d.deptno;
+
+5、查询出'张无忌'的领导是谁
+select e1.ename,e1.leader,e2.empno,e2.ename
+from emp e1 join emp e2
+on e1.leader=e2.empno
+where e1.ename='张无忌';
+
+6、'张三丰'领导谁
+select e1.empno,e1.ename
+from emp e1 join emp e2 
+on e1.leader=e2.empno
+where e2.ename='张三丰';
+
+7、查询和'张三丰'相同部门的员工姓名和雇佣日期
+//非关联查询
+select ename,hiredate
+from emp
+where deptno in(
+	select deptno
+	from emp
+	where ename='张三丰'
+);
+
+// 内连接查询
+select e1.ename,e1.hiredate,e1.deptno
+from emp e1 join emp e2
+on e1.deptno=e2.deptno
+where e2.ename='张三丰';
+
+8、查询薪水比公司平均薪水高的所有员工的员工号、姓名和薪水
+// 非关联查询
+select empno,ename,salary
+from emp
+where salary>(
+	select avg(ifnull(salary,0))
+	from emp
+);
+
+9、查询和姓名中包含'张'的员工在相同部门的员工的员工号和姓名
+// 非关联查询
+select empno,ename,deptno
+from emp
+where deptno in(
+	select deptno
+	from emp
+	where ename regexp '张'
+);
+
+10、查询领导是'张三丰'的员工姓名和薪水
+// 非关联查询
+select ename,salary
+from emp
+where leader in(
+	select empno
+	from emp
+	where ename='张三丰'
+);
+
+// 关联查询
+select ename,salary
+from emp e
+where exists(
+	select 1
+	from emp
+	where e.leader=empno and ename='张三丰'	
+);
+
+// 内连接
+select e1.ename,e1.salary
+from emp e1 join emp e2
+on e1.leader=e2.empno
+where e2.ename='张三丰';
+
+11、显示'研发部'有哪些职位
+// 非关联查询
+select position
+from emp
+where deptno=(
+	select deptno
+	from dept
+	where dname='研发部'
+);
+
+// 关联查询
+select distinct position,deptno
+from emp e
+where exists(
+	select 1
+	from dept
+	where e.deptno=deptno and dname='研发部'
+);
+
+12、各个部门中薪水大于5000的员工人数
+// 基础查询
+select deptno,count(*)
+from emp
+where deptno is not null and salary>5000
+group by deptno;
+
+
+13、所在部门平均薪水高于5000的员工名字(哪个部门的平均薪水大于5000，就列出这个部门所有的人)
+// 非关联查询
+select ename,deptno
+from emp
+where deptno in(
+	select deptno
+	from emp
+	where deptno is not null
+	group by deptno
+	having avg(ifnull(salary,0))>5000
+);
+
+14、列出各个部门中薪水最高的员工的姓名、部门号和薪水
+// 非关联查询
+select ename,deptno,salary
+from emp
+where (deptno,salary)=any(
+	select deptno,max(ifnull(salary,0)) max_salary
+	from emp
+	where deptno is not null
+	group by deptno
+);
+
+15、下列哪个组合查询返回两个查询所选择的所有的行
+A.Union
+B.Union all
+C.Union only
+D.connect by 
+答案：B
+
+16、从员工表的'姓名'字段中找出名字包含'玛丽'的人，下面哪条SELECT语句正确
+A.Select * from 员工 where 姓名='_玛丽_';
+B.Select * from 员工 where 姓名='%玛丽_';
+C.Select * from 员工 where 姓名 LIKE '_玛丽%';
+D.Select * from 员工 where 姓名 LIKE '%玛丽%';
+答案：D
+
+17、检查下列数据表中的数据
+LAST_NAME   DEPARTMENT_ID    SALARY
+Getz              10         3000
+Davis             20         1500
+King              20         2200
+Davis             30         5500
+下面子查询正确的是
+A.select * from emp where salary>(
+select min(salary)
+ from emp group by department_id);
+B.select * from emp where salary=(
+select avg(salary)
+ from emp group by department_id);
+C.select department_id from emp 
+where salary>all(
+select avg(salary)
+ from emp group by department_id);
+D.select last_name from emp 
+where salary>any(select max(salary)
+ from emp group by department_id);
+答案：CD  (C有一点问题，就是求平均没有考虑到空值的情况)
+==========================================================================================
+04
+1、创建表employee,字段为：
+id int
+first_name varchar(20)
+last_name varchar(20)
+mgrid int
+job varchar(20)
+salary double(7,2)
+
+创建表：
+create table employee(
+id int,
+first_name varchar(20),
+last_name varchar(20),
+mgrid int,
+job varchar(20),
+salary double(7,2)
+);
+
+2、向表中插入下列数据，并提交，查询数据
+id    first_name   last_name  mgrid   salary
+1      Rose         Tyler      4       1500
+2      Matha        Jones      4       2200
+3      Donna        Noble      4       1300
+4      Doctor       Who                3500
+5      Jack         Harkness   1       3000
+
+插入数据：
+insert into employee values(1,'Rose','Tyler',4,null,1500);
+insert into employee values(2,'Matha','Jones',4,null,2200);
+insert into employee values(3,'Donna','Noble',4,null,1300);
+insert into employee values(4,'Doctor','Who',null,null,3500);
+insert into employee values(5,'Jack','Harkness',1,null,3000);
+
+3、将3号员工的last_name修改为'Tate',并提交查询数据
+
+4、将所有工资小于5000的员工的工资修改为5000(不提交)，并设置保存点，查询数据
+
+5、删除employee表中所有数据(不提交)查询数据
+
+6、回滚到设置的保存点，查询数据
+
+7、删除表employee中所有数据，并提交，查询数据
+
+8、现有数据Customer,其结构如下所示：
+cust_id int primary key,客户编码
+cname  varchar(25) not null,客户姓名
+csex   char(6),客户性别
+birthday date,客户生日
+account double 客户账户余额
+1)创建表，客户编码为主键，姓名不能为空
+
+2)构造SQL语句，向Customer数据表中插入一条记录，其信息
+如下：客户编码为1031，客户姓名为sean,
+性别为'男'，
+生日为'1987-11-17',
+账户余额为12345元
+
+9、下面语句错误的原因是
+update departments 
+set department_id=300
+where department_id=60;
+Error位于第1行：
+ORA-02292:违反完整约束条件(
+HR.EMP_DEPT_FK)-已找到
+子记录日志
+A.where条件语法错误
+B.违反主键约束，department_id为300的记录已经存在
+C.60号部门下已经有员工，
+修改60号部门编号将违反完整性约束条件
+D.60号部门不存在
+答案：C
+
+10、下面创建表的语句错在哪里？
+create table abc as
+select last_name,salary*12 from 
+employees;
+A.create table abc
+B.as
+C.select last_name,salary*12
+D.from employees;
+答案:A
+
+11、下面修改表名字的命令是
+A.ALTER TABLE RENAME
+B.RENAME
+C.ALTER TABLE MOVE
+D.ALTER TABLE MODIFY
+答案：B
+
+12、下面哪个SQL命令是用于清空表中数据的DDL语句：
+A.UPDATE
+B.DELETE
+C.TRUNCATE
+D.SELECT
+答案：C
+
+13、表TEACHER包含如下字段
+列名                      可为空否？   数据类型
+TEACHER_ID                 NOT NULL    int
+NAME                                   VARCHAR(25)
+SALARY                                 double(7,2)
+SUBJECT_ID                 NOT NULL    int
+SUBJECT_DESCRIPTION                    VARCHAR(2)
+现需要将理科教师的工资上浮8%，
+理科教师的SUBJECT_ID是011，
+需要哪一句实现？
+A.update teacher salary=salary*1.08 where subject_id=011
+B.update teacher set salary=salary*1.08 where subject_id==011
+C.update teacher set salary=salary*1.08 where subject_id=011
+D.update teacher set salary=salary*1.08 where subject_id like '%011%'
+答案：C
+
+14、有如下SQL片段
+delete from emp e 
+where e.hiredate>'14-Dec-09' 
+and e.salary<>'1'
+其含义为：
+A.从表emp中删除hiredate不小于2009年12月14日，且salary不为1的记录，一定不可恢复
+B.从表emp中删除hiredate和salary列
+C.对表emp中hiredate不小于2009年12月14日，且salary不为1的记录实施删除
+D.删除emp表的全部记录
+答案：C
+
+15、SQL语言中修改表结构的命令是？
+A.MODIFY TABLE
+B.MODIFY STRUCTURE
+C.ALTER TABLE
+D.ALTER STRUCTURE
+答案：C
+
+16、Delete和truncate都可以用来删除表内容，以下描述正确的是？
+A.Truncate不需要rollback内存区域
+B.Delete需要rollback segment
+C.Truncate在提交commit之前仍可回滚
+D.Truncate还可以删除表结构
+答案：AB
+
+17、下列属于DML语句的是？
+A.commit
+B.update
+C.delete
+D.create
+答案：BC
+
+18、EMPLOYEES表的结构如下：
+employee_id int primary key
+first_name varchar(25)
+last_name varchar(25)
+下面选项中可以向该表中插入一行数据的是
+A.insert into employees(employee_id)
+ values(1000);
+B.insert into employees(
+first_name,last_name) 
+values('John','Smith');//auto_increment表示自增
+C.insert into employees 
+values(1000,'John','null');
+D.insert into employees 
+values('1000','John');
+答案：AC
+==========================================================================================
+05
+1、创建一个视图v_emp,内容是按部门分组，各个部门的薪水总和和员工人数；
+视图字段定义为deptno,total_sal,total_count
+select deptno,sum(salary),count(*)
+from emp_xu
+where deptno is not null
+group by deptno;
+
+//创建视图
+create view v_emp as 
+select deptno,sum(salary) total_sal,count(*) total_count
+from emp_xu
+where deptno is not null
+group by deptno;
+
+2、查询视图v_emp,列出全部记录
+select * from v_emp;
+
+3、删除视图v_emp
+drop view v_emp;
+
+4、下面约束只能定义在列级的是
+A.CHECK
+B.UNIQUE
+C.NOT NULL
+D.FOREIGN KEY
+E.PRIMARY KEY
+答案：C
+
+5、下面不是SQL语句的是
+A.DESC
+B.ALTER TABLE ADD..
+C.SELECT * FROM TABLE
+D.CONNECT
+答案：AD
+
+6、下面对视图的作用描述正确的是
+A.视图可以加速数据访问
+B.视图可以屏蔽掉队部分原始数据的访问
+C.视图可以降低查询复杂度
+D.视图可以代替原始数据表
+答案：BC
+
+7、下列关于主键说法正确的是
+A.一个表只允许一个主键
+B.一个表可以有多个主键
+C.数据库会为主键自动创建对应的唯一索引              
+D.主键只表示该字段不允许为空
+答案：AC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
