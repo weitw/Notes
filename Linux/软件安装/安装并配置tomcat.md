@@ -62,3 +62,19 @@ shutdown.sh也是一样的，在最后一行的上面添加上面的代码，保
 点击完Servers之后，在下面跳出来的Servers窗口下会显示没有可用的Servers，直接点击这个它的这段话，在跳转出来的窗口中选择你的tomcat安装路径即可。
 
 最后配置好之后，你的左边的项目目录中应该会多出一个Servers项目，如果没有，那可能是你哪一步弄错了。
+
+### 6. 访问404
+
+按照上面配置好之后，如果是在/opt/tomcat/bin目录下执行sudo ./startup.sh来启动的tomcat，是可以通过localhost:8080来访问到tomcat主页的。但是通过eclipse来启动tomcat之后，发现不但项目访问返回404，连localhost:8080也返回404了。我看到大家都说是tomcat自动重定向了，所以才找不到的。此时还应该在eclipse中配置以下tomcat的其他参数
+
+![tomcat默认参数](./img/tomcat默认参数.png)
+
+如图，这是默认的状态（注意，如果你已经将java项目部署到tomcat中了，1处的位置是灰色的，即你不可更改。这时你得先通过add and remove将项目从tomcat中删除，这个地方才可以修改），将1,2,3处修改为下图这样
+
+![tomcat参数配置](./img/tomcat参数配置.png)
+
+按ctrl+s报错修改之后就可以了。
+
+### 7. 通过eclipse启动tomcat显示没有权限
+
+因为/opt目录的权限一般只有root才可以访问。所以你要将/opt/tomcat目录的权限修改一下：`sudo chmod -R 777 /opt/tomcat/`。
