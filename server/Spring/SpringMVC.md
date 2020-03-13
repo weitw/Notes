@@ -40,6 +40,7 @@ HandlerMapping找到相对应的Controller组件来处理请求，执行Controll
 Spring ioc，web，webmvc开发包
 在src下添加Spring核心配置文件applicationContext.xml
 名称可以自定义，例如spring-mvc.xml
+
 #### 5.2 配置前端控制器
 
 在web.xml中配置DispatcherServlet控制器组件
@@ -52,8 +53,8 @@ Controller组件负责执行具体业务处理，编写时需要实现Controller
 
 handleRequest方法返回一个ModelAndView对象，此对象封装模型数据和视图名称
 
-ModelAndView(String viewName)
-ModelAndView(String viewName,Model model)
+new ModelAndView(String viewName)
+new ModelAndView(String viewName,Model model)
 
 viewName是视图名称，model是业务处理的数据
 
