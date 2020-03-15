@@ -61,12 +61,9 @@ JdbcTemplate
   			dept.setDname(rs.getString("dname"));
   			return dept;
   		}
-  		
   	}
   ```
-
   
-
 - DAO不继承JdbcDaoSupport，在Spring的容器中配置一个JdbcTemplate的Bean，然后
   注入给DAO组件
 
