@@ -5,9 +5,9 @@
 
 CharacterEncodingFilter使用时需要注意以下问题
 
-> 表单数据以POST方式提交
-> 在web.xml中配置CharacterEncodingFilter过滤器
-> 页面编码和过滤器指定的编码保持一致	
+- 表单数据以POST方式提交
+- 在web.xml中配置CharacterEncodingFilter过滤器
+- 页面编码和过滤器指定的编码保持一致	
 
 ### 2. 异常处理
 Spring处理异常方式有以下三种
@@ -15,12 +15,72 @@ Spring处理异常方式有以下三种
 1. 使用Spring提供的简单异常处理器SimpleMappingExceptionResolver
    只需要在Spring的配置文件中定义异常处理器即可
 
-2. 实现HandlerExceptionResolver接口（自定义异常处理器）
-   自定义异常处理器需要在Spring的配置文件中定义才可以使用，适合全局处理有"处理过程"
-   的异常	
+   例如在applicationContext.xml中配置
+   
+   ```xml
+   <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+       <property name="ExceptionMappings">
+           <props>
+               <prop key="java.lang.NumberFormatException">error</prop>
+           </props>
+       </property>
+   </bean>
+   ```
+   
+   在上面的例子中，该异常表示的是全局变量，一旦程序中出现了NumberFormatException异常，那么就会转到error.jsp页面，而不是出现一个显示代码具体错误的页面。当然可以其他的异常类来进行处理
+   
+2. 实现HandlerExceptionResolver接口（自定义异常处理器）。自定义异常处理器需要在Spring的配置文件中定义才可以使用，适合全局处理有"处理过程"的异常	
 
-3. 使用@ExceptionHandler注解实现异常处理
-   适合局部处理有"处理过程"的异常	
+   例如自定义一个异常类MyExceptionResolver
+
+   ```java
+   public class MyExceptionResolver implements HandlerExceptionResolver {
+   	@Override
+   	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response,
+   			Object obj, Exception ex) {
+           // 该方法中的obj是程序中出现异常的方法对象，ex是出现的异常类型
+   		System.out.println(obj);
+   		System.out.println(ex);
+   		String message;
+   		if (ex instanceof NumberFormatException) {
+   			System.out.println("数据转换异常");
+   			message = "数据转换异常";
+   		} else if (ex instanceof IndexOutOfBoundsException) {
+   			System.out.println("下标越界异常");
+   			message = "下标越界异常";
+   		} else {
+   			System.out.println("其他异常");
+   			message = "其他异常";
+   		}
+   		request.setAttribute("error", message);
+   		return new ModelAndView("error");
+   	}
+   }
+   ```
+
+   在applicationContext.xml中配置
+
+   ```xml
+   <bean class="com.xms.exception.MyExceptionResolver"></bean>
+   ```
+
+3. 使用@ExceptionHandler注解实现异常处理。适合局部处理有"处理过程"的异常
+
+   ```java
+   @ExceptionHandler
+   public String test3(Exception ex, HttpServletRequest request) throws Exception {
+       System.out.println(ex);
+       if (ex instanceof ClassNotFoundException) {
+           System.out.println("类找不到");
+           request.setAttribute("error", "类找不到异常");
+       } else {
+           throw ex;
+       }
+       return "error";
+   }
+   ```
+
+   注意，这种异常处理方法只作用于该方法所在的类中，所以只能处理局部的异常。这种方式可以在applicationContext.xml中配置
 
 ### 3. 拦截器
 
@@ -44,15 +104,15 @@ Spring处理异常方式有以下三种
 
 ```xml
 <mvc:interceptors>
-<mvc:interceptor>
-<!-- 需要经过拦截器的URL -->
-<mvc:mapping path=""/>
-<!-- 不需要经过拦截器的URL -->
-<mvc:exclude-mapping path=""/>
-注意：URL不可以写相对路径，绝对路径是从应用名之后开始
-<!-- 拦截器组件 -->
-<bean class=""/>
-</mvc:interceptor>
+    <mvc:interceptor>
+        <!-- 需要经过拦截器的URL -->
+        <mvc:mapping path=""/>
+        <!-- 不需要经过拦截器的URL -->
+        <mvc:exclude-mapping path=""/>
+        注意：URL不可以写相对路径，绝对路径是从应用名之后开始
+        <!-- 拦截器组件 -->
+        <bean class=""/>
+    </mvc:interceptor>
 </mvc:interceptors>	
 ```
 
