@@ -20,56 +20,50 @@ SpringMVC是Spring框架中的一个功能模块，实现MVC结构，便于简�
 ### 3. SpringMVC核心组件
 SpringMVC提供M，V和C相关的主要组件，具体如下：
 
-DispatcherServlet（控制器，请求入口）
-HandlerMapping（控制器，请求派发）
-Controller（控制器，请求处理流程）
-ModelAndView（模型，封装业务数据和视图）
-ViewResolver（视图，视图显示处理器）
+| 组件              | 描述                     |
+| ----------------- | ------------------------ |
+| DispatcherServlet | 控制器，请求入口         |
+| HandlerMapping    | 控制器，请求派发         |
+| Controller        | 控制器，请求处理流程     |
+| ModelAndView      | 模型，封装业务数据和视图 |
+| ViewResolver      | 视图，视图显示处理器     |
 
 ### 4. SpringMVC的处理流程
-浏览器向服务器发送请求，请求交给前端控制器DispatcherServlet处理，前端控制器通过
-HandlerMapping找到相对应的Controller组件来处理请求，执行Controller组件的约定方法，	
-在约定方法中调用模型层组件来完成业务处理，约定方法返回一个ModelAndView对象，此
-对象封装处理结果和跳转的视图名称信息，前端控制器接收到ModelAndView对象之后，调
-用ViewResolver组件定位View（JSP），传递数据信息，生成响应页面
+浏览器向服务器发送请求，请求交给前端控制器DispatcherServlet处理，前端控制器通过HandlerMapping找到相对应的Controller组件来处理请求，执行Controller组件的约定方法，在约定方法中调用模型层组件来完成业务处理，约定方法返回一个ModelAndView对象，此对象封装处理结果和跳转的视图名称信息，前端控制器接收到ModelAndView对象之后，调用ViewResolver组件定位View（JSP），传递数据信息，生成响应页面
 
 ### 5. 基于XML配置的MVC应用
 
 #### 5.1 搭建SpringMVC环境
-创建WEB工程，导入SpringMVC相关开发包
-Spring ioc，web，webmvc开发包
-在src下添加Spring核心配置文件applicationContext.xml
-名称可以自定义，例如spring-mvc.xml
+- 创建WEB工程，导入SpringMVC相关开发包，Spring ioc，web，webmvc开发包
+- 在src下添加Spring核心配置文件applicationContext.xml，名称可以自定义，例如spring-mvc.xml
 
 #### 5.2 配置前端控制器
 
-在web.xml中配置DispatcherServlet控制器组件
-
-配置DispatcherServlet时，指定Spring核心配置文件
+在web.xml中配置DispatcherServlet控制器组件，配置DispatcherServlet时，指定Spring核心配置文件
 
 #### 5.3 定义Controller
 
-Controller组件负责执行具体业务处理，编写时需要实现Controller接口及约定方法handleRequest
+Controller组件负责执行具体业务处理，编写时需要**实现Controller接口及约定方法handleRequest**
 
-handleRequest方法返回一个ModelAndView对象，此对象封装模型数据和视图名称
+handleRequest方法返回一个ModelAndView对象，此对象封装模型数据和视图名称。
 
-new ModelAndView(String viewName)
-new ModelAndView(String viewName,Model model)
+`return new ModelAndView(String viewName)`，这种返回的只有视图名，也就是没有数据需要传输。
+`return new ModelAndView(String viewName,Model model)`，这种需要将model数据传给视图中解析。
 
 viewName是视图名称，model是业务处理的数据
 
 #### 5.4 定义请求映射HandlerMapping
 
 通过HandlerMapping组件，DispatcherServlet控制器可以将客户端的HTTP请求映射到对应
-的Controller
+的Controller。
 
 SimpleUrlHandlerMapping维护一个个HTTP请求和Controller映射关系列表（Map），根
-据列表对应关系调用Controller
+据列表对应关系调用Controller。
 
 #### 5.5 定义视图解析器ViewResolver
 
 ViewResolver组件，Controller组件返回一个ModelAndView对象，Spring中的视图名称以
-名字为标识，视图解析器ViewResolver通过名字来解析视图
+名字为标识，视图解析器ViewResolver通过名字来解析视图。
 
 InternalResourceViewResolver：
 UrlBasedViewResolver的子类，它支持InternalResourceView（对Servlet和JSP包装）以及
