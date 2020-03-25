@@ -118,3 +118,47 @@ Spring处理异常方式有以下三种
 
 提示：定义拦截器，实现HandlerInterceptor接口，需要实现定义的全部抽象方法，如果只需
 要某一个方法，可以继承HandlerInterceptorAdapter
+
+例如
+
+applicationContext.xml
+
+```xml
+<!-- 拦截器 -->
+<mvc:interceptors>
+    <!-- 是否登录 -->
+    <mvc:interceptor>
+        <!-- 需要经过拦截器的URL -->
+        <mvc:mapping path="/**"/>
+        <!-- 不需要经过拦截器的URL -->
+        <mvc:exclude-mapping path="/login/*"/>
+        <mvc:exclude-mapping path="/regist/*"/>
+        <mvc:exclude-mapping path="/main/toIndex"/>
+        <mvc:exclude-mapping path="/css/*"/>
+        <mvc:exclude-mapping path="/images/**"/>
+        <mvc:exclude-mapping path="/js/*"/>
+        <!-- 拦截器组件 -->
+        <bean class="com.xms.interceptor.LoginInterceptor"/>
+    </mvc:interceptor>
+</mvc:interceptors>	
+```
+
+拦截器:LoginInterceptot.java
+
+```java
+@Override
+public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+    // handler:方法请求对象
+    throws Exception {
+    // 处理器执行前
+    User user = (User) request.getSession().getAttribute("user");
+    if (user == null) {
+        response.sendRedirect(request.getContextPath()+"/login/toLogin");
+        return false;
+    } else {
+        return true;
+    }
+}
+```
+
+这个拦截器的目的是：**在用户未登录前，只能访问登录，注册，和主页面，访问其他页面则要重定向到登录页面去。但是要注意一点，必须将静态资源"放行"，否则未登录前的话，样式也会被拦截。如果觉得将所有静态资源都放行不安全的话，可以只在未登录前，只放行登录，注册，和主页面所需要的静态资源。**
