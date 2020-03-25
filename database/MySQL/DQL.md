@@ -109,14 +109,14 @@ select * from emp where position=any('Analyst','Manager');
 
 增加一个列表项（null）之后，对查询结果没有影响，例如
 
-`select * from emp where salary in(5000,4000,null);`，那么salary为null的结果也查不出来。
+`select * from emp where salary in(5000,4000,null);`，那么salary为null的结果能出来（因为如果salary和in()里面值逐一比较，如果发现一样的，则匹配成功，如果和Null比较，继续和下一个值比较，即和null比较查询为空）。但是not in ()就会有影响（因为要保证salary和列表项里面的每一项都要不同，所以每次都要和null比较，结果自然全为空）。
 
-因为当用表中的salary和in()里面的值比较时，和null是无法比较的，**即没有null等于null这种说法**
+因为当用表中的salary和in()里面的值比较时，和null是无法比较的，**即没有null等于null这种说法**。
 
 ##### 1.1.10 结论
 
-- 空值不能用等于或者不等于跟任何数据进行比较
-- 使用in()时列表项中有空值对结果没有影响
+- **空值不能用等于或者不等于跟任何数据进行比较**
+- **使用in()时列表项中有空值对结果没有影响；not in()有影响，结果为空**
 
 ##### 1.1.11 模糊查询
 
