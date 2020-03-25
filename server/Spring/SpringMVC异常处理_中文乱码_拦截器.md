@@ -84,6 +84,8 @@ Spring处理异常方式有以下三种
 
 ### 3. 拦截器
 
+#### 3.1 拦截器示例代码
+
 拦截器接口，拦截器必须实现HandlerInterceptor接口
 
 1. preHandle()
@@ -161,4 +163,42 @@ public boolean preHandle(HttpServletRequest request, HttpServletResponse respons
 }
 ```
 
+#### 3.2 静态资源的处理
+
 这个拦截器的目的是：**在用户未登录前，只能访问登录，注册，和主页面，访问其他页面则要重定向到登录页面去。但是要注意一点，必须将静态资源"放行"，否则未登录前的话，样式也会被拦截。如果觉得将所有静态资源都放行不安全的话，可以只在未登录前，只放行登录，注册，和主页面所需要的静态资源。**
+
+- 第一种方式
+
+拦截条件：用户是否登录
+
+拦截请求URL：/**，第一个\*是域名，第二个\*是请求
+
+(/login/*，/regist/*, /main/toIndex)
+
+- 第二种方式
+
+采用默认的静态资源处理（spring-mvc.xml, web.xml）
+
+在spring-mvc.xml中启动默认的serlvet
+
+`<mvc:default-servlet-handler/>`
+
+在web.xml中增加对静态资源的处理
+
+```xml
+<servlet-mapping>
+	<servlet-name>default</servlet-name>
+    <url-pattern>*.js</url-pattern>
+    <url-pattern>*.css</url-pattern>
+    <url-pattern>*.jpg</url-pattern>
+    <url-pattern>*.png</url-pattern>
+</servlet-mapping>
+```
+
+**注意：配置必须在Spring的DispatcherServlet之前**
+
+- 第三种方式
+
+修改Spring的全局拦截为*.do(web.xml)
+
+Spring就只会针对以*.do结尾的请求进行处理，不再维护静态资源。
