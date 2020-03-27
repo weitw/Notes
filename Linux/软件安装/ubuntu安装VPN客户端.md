@@ -1,5 +1,7 @@
 ## ubuntu安装VPN客户端
 
+此软件是从别处看到的，但是原作者好像没有再继续开发这个项目electron-ssr，我是从[https://github.com/qingshuisiyuan/electron-ssr-backup](https://github.com/qingshuisiyuan/electron-ssr-backup)这儿看到的，好东西，致敬原作者
+
 软件安装配置好之后的截图
 
 ![electron-ssr软件截图](./img/electron-ssr.png)
