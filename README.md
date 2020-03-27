@@ -1,6 +1,6 @@
 ## 摘要
 
-该仓库主要是平时整理的笔记，包括Java、Linux、数据结构和一些编辑工具的使用。
+该仓库主要是平时做的一些笔记，会一直更新。包括但不限于java基础、java框架、数据库、前端、Linux环境下的常用软件安装。
 
 ## 目录
 
@@ -32,5 +32,14 @@
    
 6. <a href="./database" style="text-decoration:none;">数据库</a>
 
-<!--/TOC-->
+   - <a href="./database/MySQL" style="text-decoration:none;">MySQL</a>
+   - <a href="./database/Oracle" style="text-decoration:none;">Oracle</a>
 
+7. <a href="./server" style="text-decoration:none;">后端技术</a>
+
+   - <a href="./server/Spring" style="text-decoration:none;">Spring</a>
+   - <a href="./server/MyBatis" style="text-decoration:none;">MyBatis</a>
+   - <a href="./server/Maven" style="text-decoration:none;">Maven</a>
+   - <a href="./server/projects" style="text-decoration:none;">简单ssm案例</a>
+
+<!--/TOC-->
