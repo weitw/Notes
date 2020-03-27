@@ -1,0 +1,69 @@
+### 1. 鉴别器
+有时一个单独的数据库查询有可能返回很多不同的数据类型的结果集，例如：一张表存储单选题和多选题，查询时需要返回单选题和多选题，鉴别器就是用来处理此情况，鉴别器标签类似于Java语言中的switch分支。
+
+用question表做测试
+
+```sql
+create table question(
+    id int(2) primary key auto_increment,
+    title varchar(20),
+    options varchar(20),
+    answer varchar(10),
+    type char(1)
+);
+
+insert into question values(null,'这是一道单选题','选项如下:A,B,C,D','A','S');
+insert into question values(null,'这是一道单选题','选项如下:A,B,C,D','C','S');	
+insert into question values(null,'这是一道多选题','选项如下:A,B,C,D','ABC','M');
+insert into question values(null,'这是一道多选题','选项如下:A,B,C,D','BD','M');
+```
+
+### 2. MyBatis缓存
+MyBatis与其他持久层框架一样，支持一级缓存和二级缓存。
+
+#### 1.1 一级缓存
+
+基于PerpetualCache和HashMap本地缓存，其存储作用域为Session，当Session clearCache或close，此时Session中的cache就将清空，一级缓存默认开启的。
+
+#### 1.2 二级缓存
+
+与一级缓存机制相同，默认采用PerpetualCache和HashMap存储，不同在于其存储作用域为Mapper（Namespace），且可自定义存储源，如Ehcache。
+
+对于缓存数据更新机制，当某一个作用域（一级缓存Session/二级缓存Namespace）进行C/U
+/D操作，默认此作用域下所有select中的缓存将被clear
+
+二级缓存补充说明：
+
+- 二级缓存需要手动开启（在映射文件中指定\<cache/>）
+- 二级缓存中的缓存对象必须可序列化，即实体类必须实现Serializable接口
+- 映射文件中的select语句将会被缓存
+- 映射文件中insert，update，delete语句会刷新缓存
+- 缓存会根据指定的时间间隔来刷新
+- 缓存会存储1024个对象
+- 缓存会使用Least Recently Used（LRU，最近最少使用）算法来回收
+
+cache标签属性：
+<cache 
+eviction="" 						<!-- 回收策略 -->
+flushInterval="" 				<!-- 自动刷新时间 -->	
+size="" 							<!--  指定缓存对象个数 -->
+readOnly=""						<!-- 指定只读/读写 -->
+/>	
+
+### 3. MyBatis Generator
+简称MBG，是一个专门为MyBatis框架开发者定制的代码生成器，可以快速的根据表生成对应的映射文件，接口，以及Bean类，支持基本的增删改查，以及QBC（Query By Criteria："面向对象"的一种检索方式）风格的条件查询，但是表连接，存储过程等复杂sql的定义需要手动编写
+
+官方文档地址：
+http://www.mybatis.org/generator
+官方工程地址：
+https://github.com/mybatis/generator/releases
+
+### 4. PageHelper
+
+官方工程地址：
+https://github.com/pagehelper/MyBatis-PageHelper
+
+
+​		
+
+
