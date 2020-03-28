@@ -32,6 +32,6 @@
 
 ![成绩表](./images/scoreinfo_table.png)
 
-5. 班级表(classinfo)
+5. 科目表(classinfo)
 
 ![学生成绩表](./images/classinfo_table.png)
