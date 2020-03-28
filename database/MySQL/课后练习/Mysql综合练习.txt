@@ -163,8 +163,9 @@ A.IN
 B.BETWEEN...AND..
 C.LIKE
 D.AND
+
 答案：A
-==========================================================================================
+
 03
 1、显示所有员工的姓名、部门号和部门名称
 select e.ename,e.deptno,d.dname
@@ -343,8 +344,9 @@ select avg(salary)
 D.select last_name from emp 
 where salary>any(select max(salary)
  from emp group by department_id);
+
 答案：CD  (C有一点问题，就是求平均没有考虑到空值的情况)
-==========================================================================================
+
 04
 1、创建表employee,字段为：
 id int
@@ -504,8 +506,9 @@ C.insert into employees
 values(1000,'John','null');
 D.insert into employees 
 values('1000','John');
+
 答案：AC
-==========================================================================================
+
 05
 1、创建一个视图v_emp,内容是按部门分组，各个部门的薪水总和和员工人数；
 视图字段定义为deptno,total_sal,total_count
