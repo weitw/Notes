@@ -187,7 +187,7 @@ public class Test2 {
 
 结果：
 
-![image-20200806095047810](/home/exile/.config/Typora/typora-user-images/image-20200806095047810.png)
+![image-20200806095047810](../img/LocalDate案例运行结果.png)
 
 注意：
 
@@ -219,7 +219,7 @@ public class Test2 {
 
 结果：
 
-![image-20200806095322318](/home/exile/.config/Typora/typora-user-images/image-20200806095322318.png)
+![image-20200806095322318](../img/LocalTime案例运行结果.png)
 
 注意：
 
@@ -247,7 +247,7 @@ public class Test2 {
 
 结果：
 
-![image-20200806100249930](/home/exile/.config/Typora/typora-user-images/image-20200806100249930.png)
+![image-20200806100249930](../img/LocalDateTime案例运行结果.png)
 
 
 
