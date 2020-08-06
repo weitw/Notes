@@ -152,13 +152,109 @@ public interface MyFun {
 
 如果一个类的父类和它实现的接口类中有同样的方法，那么该类会选择父类中的方法执行。
 
+### 4. 日期
+
+#### 4.1 SimpleDateFormat线程不安全
+
+Date()对象显示的日期样式不是我们需要的，一般会使用SimpleDateFormat来进行格式化，但是SimpleDateFormat是线程不安全的，因为这个这个类是继承与DateFormat的，DateFormat中有一个Calender属性，可以说SimpleDateFormat的格式化就是依赖于这个属性的。
+
+SimpleDateFormat的format方法中将传入的Date对象会交给calendar属性（calendar.setTime(date);）；当A线程传入时间a调用format方法进行格式化，format方法还没执行完，此时B线程传入时间b调用format方法进行格式化，则A线程中的calendar的time就变成了B线程传入的时间b了，当执行format方法中的subFormat方法时，获取到的格式化的时间是不正确的。
+
+Java8中可以使用LocalDate(日期)、LocalTime(时间)、LocalDateTime(日期时间)对象来处理日期时间。
+
+#### 4.1 LocalDate的基本使用
+
+```java
+public class Test2 {
+    public static void main(String[] args){
+        // 获取当前日期
+        LocalDate date = LocalDate.now();
+        System.out.println(date);
+        // 获取年月日
+        int year = date.getYear();
+        int month = date.getMonthValue();  // date.getMonth()获取到的是Month对象
+        int day = date.getDayOfMonth();
+        System.out.println(year+"-"+month+"-"+day);
+        // 修改日期
+        LocalDate newDate = date.withYear(2019).withMonth(12).withDayOfMonth(12);
+        System.out.println("修改后的时间："+newDate);
+        // 解析日期
+        LocalDate parseDate = LocalDate.parse("2008-08-08");
+        System.out.println("解析日期："+parseDate);
+    }
+}
+```
+
+结果：
+
+![image-20200806095047810](/home/exile/.config/Typora/typora-user-images/image-20200806095047810.png)
+
+注意：
+
+- date.getMonth()获取到的是月份的英文单词，date.getMonthValue()才是获取数字的月份
+- 解析日期要注意，日期格式必须为yyyy-MM-dd这种，比如"2008-8-8"这种是会抛出异常的，必须要是两位的月份和日。而且间隔必须是"-"不能是":"这个要注意，下面将的LocalTime的解析就是":"间隔了，要注意区分。
+
+#### 4.2 LocalTime的基本使用
+
+```java
+public class Test2 {
+    public static void main(String[] args){
+        // 获取时间
+        LocalTime time = LocalTime.now();
+        System.out.println(time);
+        // 获取时分秒
+        int hour = time.getHour();
+        int minute = time.getMinute();
+        int second = time.getSecond();
+        System.out.println(hour+":"+minute+":"+second);
+        // 修改时间
+        LocalTime newTime = time.withHour(12).withMinute(9).withSecond(34);
+        System.out.println("修改后的时间"+newTime);
+        // 解析时间
+        LocalTime parseTime = LocalTime.parse("20:12:08");
+        System.out.println(parseTime);
+    }
+}
+```
+
+结果：
+
+![image-20200806095322318](/home/exile/.config/Typora/typora-user-images/image-20200806095322318.png)
+
+注意：
+
+- 解析日期要注意，日期格式必须为HH:mm:ss这种，比如"20:2:12"这种是会抛出异常的，必须要是两位的时分秒。而且间隔必须是":"不能是"-"，和LocalDate是不同的。
+
+#### 4.3 LocalDateTime的基本使用
+
+```java
+public class Test2 {
+    public static void main(String[] args){
+        // LocalDateTime的使用
+        LocalDateTime date = LocalDateTime.now();
+        System.out.println(date);
+        // 获取年月日，时分秒
+        // 和上面的LocalDate和LocalTime一样。
+        System.out.println(date.getYear()+"-"+date.getMonthValue()+"-"+date.getDayOfMonth()+" "+
+                date.getHour()+":"+date.getMinute()+":"+date.getSecond());
+        // 修改日期时间
+        System.out.println(date.withYear(2009).withHour(22).withSecond(12));
+        // 解析日期时间
+        System.out.println(LocalDateTime.parse("2008-12-02T12:12:12"));
+    }
+}
+```
+
+结果：
+
+![image-20200806100249930](/home/exile/.config/Typora/typora-user-images/image-20200806100249930.png)
 
 
 
+注意：
 
-
-
-
+- 获取和修改日期时间与LocalDate和LocalTime一样的用法。注意事项也一样
+- 解析日期时间要注意，按照我们的习惯可能日期和时间之间是用空格隔开，比如："2008-12-02 12:12:12"，但是这样会抛出异常，必须用T来替代空格。
 
 
 
