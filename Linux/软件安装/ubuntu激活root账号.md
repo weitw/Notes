@@ -6,5 +6,5 @@
 
 ### 2. 解决方案
 
-> 使用命令：`sudo password root`，然后会提示你为root用户创建密码，确认密码，完成后root账号就被激活了，现在可以使用命令`su`或者`su root`来切换到root账号下。
+> 使用命令：`sudo passwd root`（之前看到别人说是password，但是我输入之后提示没有这个命令，所以输入`sudo pass`的时候按Tab健，这样就会自动补全或者提示了），然后会提示你为root用户创建密码，确认密码，完成后root账号就被激活了，现在可以使用命令`su`或者`su root`来切换到root账号下。
 
